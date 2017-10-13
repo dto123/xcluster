@@ -1,5 +1,5 @@
 import numpy as np
-import PCA
+from PCA import PCA
 
 def loadData(filename):
     a = np.loadtxt(filename)
