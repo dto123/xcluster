@@ -1,4 +1,5 @@
 import numpy as np
+import PCA
 
 def loadData(filename):
     a = np.loadtxt(filename)
@@ -6,4 +7,7 @@ def loadData(filename):
 
 
 def main():
-    loadData("../../../../data/glass.tsv")
+    data = loadData("../../../../data/glass.tsv")
+    pca = PCA(data)
+    print pca.shape
+    print pca
