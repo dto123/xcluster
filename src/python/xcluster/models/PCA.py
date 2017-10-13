@@ -5,6 +5,7 @@ def PCA(data, dims_rescaled_data=2):
     returns: data transformed in 2 dims/columns + regenerated original data
     pass in: data as 2D NumPy array
     """
+    import scipy
     import numpy as NP
     from scipy import linalg as LA
     m, n = data.shape
@@ -13,7 +14,7 @@ def PCA(data, dims_rescaled_data=2):
     # calculate the covariance matrix
     R = NP.cov(data, rowvar=False)
     # calculate eigenvectors & eigenvalues of the covariance matrix
-    # use 'eigh' rather than 'eig' since R is symmetric, 
+    # use 'eigh' rather than 'eig' since R is symmetric,
     # the performance gain is substantial
     evals, evecs = LA.eigh(R)
     # sort eigenvalue in decreasing order
