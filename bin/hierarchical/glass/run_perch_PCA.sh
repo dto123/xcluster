@@ -6,8 +6,8 @@ output_dir=${1:-"experiments_out"}
 
 #dataset_file=$XCLUSTER_ROOT/data/glass.tsv
 dataset_file=$XCLUSTER_ROOT/data/PCA_data.tsv
-dataset_name=glass
-#dataset_name=PCA_glass
+#dataset_name=glass
+dataset_name=PCA_glass
 num_runs=10
 num_threads=24
 
