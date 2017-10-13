@@ -31,7 +31,7 @@ def main():
         line.append(cid[i])
         line.extend(list(pca[i,:]))
 
-        f.write("%s\n"%"\t".join(line))
+        f.write("%s\n"%"\t".join([str(x) for x in line]))
 
     #print pca
     f.close()
