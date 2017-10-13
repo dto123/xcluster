@@ -16,7 +16,7 @@ def main():
 
     f= open("../../../../data/PCA_data.tsv", "w")
     for string in data:
-        f.write(string + "\t" )
+        f.write(repr(string) + "\t" )
     #print pca
     f.close()
 main()
