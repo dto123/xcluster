@@ -2,21 +2,37 @@ import numpy as np
 from PCA import PCA
 
 def loadData(filename):
-    a = np.loadtxt(filename)
-    return a
+    pid = []
+    cid = []
+    p = []
+    with open(filename, 'r') as fin:
+        for string in fin:
+            a = string.strip().split("\t")
+            pid.append(a[0])
+            cid.append(a[1])
+            p.append([float(x) for x in a[2:]])
+    return pid, cid, p
+
+
 
 
 def main():
 
-    data = loadData("../../../../data/glass.tsv")
-    print data.shape
+    pid,cid,p = loadData("../../../../data/glass.tsv")
 
-    pca = PCA(data)
+
+    pca = PCA(np.array(p))
     print pca.shape
 
     f= open("../../../../data/PCA_data.tsv", "w")
-    for string in data:
-        f.write(repr(string) + "\t" )
+    for i in range(len(pid)):
+        line = []
+        line.append(pid[i])
+        line.append(cid[i])
+        line.extend(list(pca[i,:]))
+
+        f.write("%s\n"%"\t".join(line))
+
     #print pca
     f.close()
 main()
