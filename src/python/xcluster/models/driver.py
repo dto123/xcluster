@@ -14,9 +14,9 @@ def main():
     pca = PCA(data)
     print pca.shape
 
-    file = open("../../../../data/PCA_data.tsv", "w")
+    f= open("../../../../data/PCA_data.tsv", "w")
     for string in data:
-        file.write(string + "\t" )
+        f.write(string + "\t" )
     #print pca
-    file.close()
+    f.close()
 main()
