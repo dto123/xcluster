@@ -34,7 +34,7 @@ def main():
         line.extend(list(pca[i,:]))
 
         f.write("%s\n"%"\t".join([str(x) for x in line]))
-        print("%s\n"%"\t".join([str(x) for x in line]))
+        print("%s\n"%"\t".join([str(x) for x in line]) + '\n') 
 
     #print pca
     f.close()
