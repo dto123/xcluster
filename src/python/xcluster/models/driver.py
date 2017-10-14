@@ -7,12 +7,12 @@ def loadData(filename):
     p = []
     with open(filename, 'r') as fin:
         for string in fin:
-            a = string.strip().split("\t")
-            if (len(a) < 2):
+            splt = string.strip().split("\t")
+            if (len(splt) < 2):
                 println("ERROR: Line: " + string)
-            pid.append(a[0])
-            cid.append(a[1])
-            p.append([float(x) for x in a[2:]])
+            pid.append(splt[0])
+            cid.append(splt[1])
+            p.append([float(x) for x in splt[2:]])
     return pid, cid, p
 
 
