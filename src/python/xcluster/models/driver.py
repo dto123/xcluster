@@ -8,7 +8,7 @@ def loadData(filename):
     with open(filename, 'r') as fin:
         for string in fin:
             a = string.strip().split("\t")
-            if (len(a) < 2)
+            if (len(a) < 2):
                 println("ERROR: Line: " + string)
             pid.append(a[0])
             cid.append(a[1])
