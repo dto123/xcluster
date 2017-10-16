@@ -20,13 +20,14 @@ def loadData(filename):
 
 def main():
 
-    pid,cid,p = loadData("../../../../data/glass.tsv")
-
+    #pid,cid,p = loadData("../../../../data/glass.tsv")
+    pid,cid,p = loadData("../../../../data/aloi.tsv")
 
     pca = PCA(np.array(p))
     print pca.shape
 
-    f= open("../../../../data/PCA_data.tsv", "w")
+    #f= open("../../../../data/PCA_data.tsv", "w")
+    f= open("../../../../data/PCA_data_aloi.tsv", "w")
     for i in range(len(pid)):
         line = []
         line.append(pid[i])
@@ -34,7 +35,7 @@ def main():
         line.extend(list(pca[i,:]))
 
         f.write("%s\n"%"\t".join([str(x) for x in line]))
-        print("%s\n"%"\t".join([str(x) for x in line]) + '\n') 
+        #print("%s\n"%"\t".join([str(x) for x in line]))
 
     #print pca
     f.close()
