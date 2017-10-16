@@ -5,7 +5,7 @@ set -exu
 output_dir=${1:-"experiments_out"}
 
 #dataset_file=$XCLUSTER_ROOT/data/glass.tsv
-dataset_file=$XCLUSTER_ROOT/data/PSA_data.tsv
+dataset_file=$XCLUSTER_ROOT/data/PCA_data.tsv
 #dataset_name=glass
 dataset_name=PCA_data
 num_runs=10
