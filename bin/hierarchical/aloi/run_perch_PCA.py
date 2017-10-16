@@ -3,7 +3,7 @@
 
 set -exu
 
-output_dir=${1:-"experiments_out_aloi_PCA"}
+output_dir=${1:-"experiments_out"}
 
 dataset_file=$XCLUSTER_ROOT/data/PCA_aloi.tsv
 dataset_name=PCA_aloi
