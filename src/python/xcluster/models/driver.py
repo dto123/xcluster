@@ -32,7 +32,7 @@ def main():
     print pca.shape
 
     #f= open("../../../../data/PCA_data.tsv", "w")
-    f= open("../../../../data/PCA_data_0.25d.tsv", "w")
+    f= open("../../../../data/PCA_data_dim_5.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     for i in range(len(pid)):
         line = []
@@ -45,5 +45,5 @@ def main():
 
     #print pca
     f.close()
-    
+
 main()
