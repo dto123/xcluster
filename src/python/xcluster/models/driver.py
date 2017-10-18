@@ -44,5 +44,5 @@ def main():
 
     #print pca
     f.close()
+    """
 main()
-"""
