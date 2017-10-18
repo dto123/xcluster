@@ -26,8 +26,9 @@ def main():
 
     d = np.shape(np.array(p))[1]
     print d
-    """
-    pca = PCA(np.array(p), d)
+    print d/2
+
+    pca = PCA(np.array(p), 5)
     print pca.shape
 
     #f= open("../../../../data/PCA_data.tsv", "w")
@@ -44,5 +45,5 @@ def main():
 
     #print pca
     f.close()
-    """
+    
 main()
