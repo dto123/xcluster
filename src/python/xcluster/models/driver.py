@@ -28,11 +28,11 @@ def main():
     print d
     print d/2
 
-    pca = PCA(np.array(p), 3)
+    pca = PCA(np.array(p), 7)
     print pca.shape
 
     #f= open("../../../../data/PCA_data.tsv", "w")
-    f= open("../../../../data/PCA_data_dim-3.tsv", "w")
+    f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     print "hi"
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     for i in range(len(pid)):
