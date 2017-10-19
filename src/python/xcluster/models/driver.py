@@ -27,11 +27,12 @@ def main():
     d = np.shape(np.array(p))[1]
     print d
     #aloi has 128 dimensions
-    """
-    pca = PCA(np.array(p), 96)
+    #speaker has 600 dimensions
+
+    pca = PCA(np.array(p), 300)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_aloi_dim-96.tsv", "w")
+    f= open("../../../../data/PCA_data_aloi_dim-300.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
