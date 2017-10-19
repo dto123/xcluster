@@ -5,8 +5,8 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/PCA_data_aloi.tsv
-dataset_name=PCA_data_aloi
+dataset_file=$XCLUSTER_ROOT/data/PCA_data_aloi_dim-96.tsv
+dataset_name=PCA_data_aloi_dim-96
 
 num_runs=10
 num_threads=24
