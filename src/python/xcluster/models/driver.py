@@ -28,10 +28,10 @@ def main():
     print d
     #aloi has 128 dimensions
 
-    pca = PCA(np.array(p), 64)
+    pca = PCA(np.array(p), 96)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_aloi_dim-64.tsv", "w")
+    f= open("../../../../data/PCA_data_aloi_dim-96.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
