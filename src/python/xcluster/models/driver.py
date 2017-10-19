@@ -31,10 +31,10 @@ def main():
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
 
-    pca = PCA(np.array(p), 1024)
+    pca = PCA(np.array(p), 512)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_ilsvrc12_dim-1024", "w")
+    f= open("../../../../data/PCA_data_ilsvrc12_dim-512", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
