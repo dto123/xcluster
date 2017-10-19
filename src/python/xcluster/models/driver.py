@@ -21,13 +21,13 @@ def loadData(filename):
 def main():
 
     #pid,cid,p = loadData("../../../../data/glass.tsv")
-    pid,cid,p = loadData("../../../../data/aloi.tsv")
-    #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
+    #pid,cid,p = loadData("../../../../data/aloi.tsv")
+    pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
 
     d = np.shape(np.array(p))[1]
     print d
     #aloi has 128 dimensions
-
+    """
     pca = PCA(np.array(p), 96)
     print pca.shape
 
@@ -46,5 +46,5 @@ def main():
 
     #print pca
     f.close()
-
+    """
 main()
