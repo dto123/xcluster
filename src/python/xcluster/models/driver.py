@@ -24,16 +24,17 @@ def main():
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
-    
+
     d = np.shape(np.array(p))[1]
     print d
     #aloi has 128 dimensions
     #speaker has 600 dimensions
-    """
-    pca = PCA(np.array(p), 450)
+    #ilsvrc12_50k has 2048 dimensions
+
+    pca = PCA(np.array(p), 1024)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_speaker_dim-450.tsv", "w")
+    f= open("../../../../data/PCA_data_ilsvrc12_dim-1024", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
@@ -48,5 +49,5 @@ def main():
 
     #print pca
     f.close()
-    """
+
 main()
