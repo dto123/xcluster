@@ -32,7 +32,7 @@ def main():
     pca = PCA(np.array(p), 300)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_aloi_dim-300.tsv", "w")
+    f= open("../../../../data/PCA_data_speaker_dim-300.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
@@ -47,5 +47,5 @@ def main():
 
     #print pca
     f.close()
-    
+
 main()
