@@ -26,14 +26,14 @@ def main():
 
     d = np.shape(np.array(p))[1]
     print d
-    
-    """
-    pca = PCA(np.array(p), 7)
+    #aloi has 128 dimensions
+
+    pca = PCA(np.array(p), 32)
     print pca.shape
 
+    f= open("../../../../data/PCA_data_aloi_dim-32.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
-    print "hi"
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     for i in range(len(pid)):
         line = []
@@ -46,5 +46,5 @@ def main():
 
     #print pca
     f.close()
-    """
+
 main()
