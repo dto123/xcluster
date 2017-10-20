@@ -34,7 +34,7 @@ def main():
     pca = PCA(np.array(p), 1536)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_ilsvrc12_dim-1536", "w")
+    f= open("../../../../data/PCA_data_ilsvrc12_dim-1536.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
