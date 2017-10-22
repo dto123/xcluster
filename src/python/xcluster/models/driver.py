@@ -31,11 +31,12 @@ def main():
     #aloi has 128 dimensions
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
-    """
+    #imagenet has 2048 dimensions
+
     pca = PCA(np.array(p), 512)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_ilsvrc12_dim-512.tsv", "w")
+    f= open("../../../../data/PCA_data_imagenet_dim-512.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
