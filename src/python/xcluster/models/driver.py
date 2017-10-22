@@ -33,10 +33,10 @@ def main():
     #ilsvrc12_50k has 2048 dimensions
     #imagenet has 2048 dimensions
 
-    pca = PCA(np.array(p), 1024)
+    pca = PCA(np.array(p), 1536)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_imagenet_dim-1024.tsv", "w")
+    f= open("../../../../data/PCA_data_imagenet_dim-1536.tsv", "w")
     #f= open("../../../../data/PCA_data.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
