@@ -20,7 +20,7 @@ expected_dp_point_file="None"
 
 for i in `seq 1  $num_runs`
     do
-        algorithm_name="Perch"
+        algorithm_name="Perch with dim = 3"
         shuffled_data="${dataset_file}.$i"
         exp_output_dir="$output_dir/$dataset_name/$algorithm_name/run_$i"
 
