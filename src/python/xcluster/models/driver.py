@@ -20,9 +20,9 @@ def loadData(filename):
 
 def main():
 
-    #pid,cid,p = loadData("../../../../data/glass.tsv")
+    pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
-    pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
+    #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
 
@@ -32,12 +32,12 @@ def main():
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
     #imagenet has 2048 dimensions
-    """
-    pca = PCA(np.array(p), 1536)
+
+    pca = PCA(np.array(p), 3 )
     print pca.shape
 
-    f= open("../../../../data/PCA_data_imagenet_dim-1536.tsv", "w")
-    #f= open("../../../../data/PCA_data.tsv", "w")
+    #f= open("../../../../data/PCA_data_imagenet_dim-1536.tsv", "w")
+    f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     for i in range(len(pid)):
@@ -51,5 +51,5 @@ def main():
 
     #print pca
     f.close()
-    """
+
 main()
