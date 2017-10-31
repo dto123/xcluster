@@ -23,8 +23,8 @@ def main():
     #pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
-    pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
+    pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
+    #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     #d = np.shape(np.array(p))
     d = np.shape(np.array(p))[1]
     print d
@@ -36,7 +36,7 @@ def main():
     pca = PCA(np.array(p), d)
     print pca.shape
 
-    f= open("../../../../data/PCA_data_imagenet_fullDim.tsv", "w")
+    f= open("../../../../data/PCA_data_ilsvrc_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
@@ -51,5 +51,5 @@ def main():
 
     #print pca
     f.close()
-    
+
 main()
