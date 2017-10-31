@@ -80,6 +80,39 @@ def _fast_min_to_box(mns, mxs, x):
     """
     return _fast_norm(np.maximum(np.maximum(x - mxs, mns - x), 0))
 
+    @jit(nopython=True)
+    def _fast_min_to_sphere(center, radius, x):
+        """Compute the minimum distance of x to a sphere.
+
+        Args:
+        center - a numpy array of floats representing the center coordinate value
+            in each dimension of the sphere.
+        radius - a float representing the radius of the sphere
+        x - a numpy array representing the point.
+
+        Returns:
+        A float representing the minimum distance betwen x and the sphere.
+        """
+        distance = _fast_norm(np.maximum(x-center, center-x))
+        return max(distance - radius, 0.0)
+
+    @jit(nopython=True)
+    def _fast_max_to_sphere(center, radius, x):
+        """Compute the maximum distance of x to a sphere.
+
+        Args:
+        center - a numpy array of floats representing the center coordinate value
+            in each dimension of the sphere.
+        radius - a float representing the radius of the sphere
+        x - a numpy array representing the point.
+
+        Returns:
+        A float representing the maximum distance betwen x and the sphere.
+        """
+        distance = _fast_norm(np.maximum(x-center, center-x))
+        return distance + radius
+
+
 
 @jit(nopython=True)
 def _fast_max_to_box(mns, mxs, x):
@@ -111,8 +144,10 @@ class PNode:
         self.children = []
         self.parent = None
         self.num = -1  # The order of this node in the tree.
-        self.maxes = None
-        self.mins = None
+        #self.maxes = None
+        #self.mins = None
+        self.center = None
+        self.radius = None
         self.pts = []  # each pt # is a tuple of (pt, label).
         self.children_min_d = 0.0
         self.children_max_d = 0.0
