@@ -104,16 +104,16 @@ def merge_spheres(center1, radius1, center2, radius2):
     """
     print ("MERGE SPHERES")
     #accounts for case where one sphere is enclosed in other sphere
-    if radius1 > radius2 and _fast_norm_diff(center1 - center2) + radius2 < radius1:
+    if radius1 > radius2 and _fast_norm_diff(center1,center2) + radius2 < radius1:
         return radius1, center1
-    if radius2 > radius1 and _fast_norm_diff(center1 - center2) + radius1 < radius2:
+    if radius2 > radius1 and _fast_norm_diff(center1, center2) + radius1 < radius2:
         return radius2, center2
 
-    newRadius = (radius1 + radius2 + _fast_norm_diff(center1 - center2))*0.5
+    newRadius = (radius1 + radius2 + _fast_norm_diff(center1, center2))*0.5
     if radius1>radius2:
-        newCenter = center1 + ((center2-center1) * (newRadius - radius1)/ _fast_norm_diff(center2-center1))
+        newCenter = center1 + ((center2-center1) * (newRadius - radius1)/ _fast_norm_diff(center2,center1))
     else:
-        newCenter = center2 + ((center1-center2) * (newRadius - radius2)/ _fast_norm_diff(center2-center1))
+        newCenter = center2 + ((center1-center2) * (newRadius - radius2)/ _fast_norm_diff(center2,center1))
 
     return newRadius, newCenter
 
