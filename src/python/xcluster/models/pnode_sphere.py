@@ -55,111 +55,67 @@ def _fast_norm_diff(x, y):
     return _fast_norm(x - y)
 
 
+
 @jit(nopython=True)
-def _fast_min_to_box(mns, mxs, x):
-    """Compute the minimum distance of x to a bounding box.
-
-    Take a point x and a bounding box defined by two vectors of the min and max
-    coordinate values in each dimension.  Compute the minimum distance of x to
-    the box by computing the minimum distance between x and min or max in each
-    dimension.  If, for dimension i,
-
-    self.mins[i] <= x[i] <= self.maxes[i],
-
-    then the distance between x and the box in that dimension is 0.
+def _fast_min_to_sphere(center, radius, x):
+    """Compute the minimum distance of x to a sphere.
 
     Args:
-    mns - a numpy array of floats representing the minimum coordinate value
-        in each dimension of the bounding box.
-    mxs - a numpy array of floats representing the maximum coordinate value
-        in each dimension of the bounding box.
+    center - a numpy array of floats representing the center coordinate value
+        in each dimension of the sphere.
+    radius - a float representing the radius of the sphere
     x - a numpy array representing the point.
 
     Returns:
-    A float representing the minimum distance betwen x and the box.
+    A float representing the minimum distance betwen x and the sphere.
     """
-    return _fast_norm(np.maximum(np.maximum(x - mxs, mns - x), 0))
-
-    @jit(nopython=True)
-    def _fast_min_to_sphere(center, radius, x):
-        """Compute the minimum distance of x to a sphere.
-
-        Args:
-        center - a numpy array of floats representing the center coordinate value
-            in each dimension of the sphere.
-        radius - a float representing the radius of the sphere
-        x - a numpy array representing the point.
-
-        Returns:
-        A float representing the minimum distance betwen x and the sphere.
-        """
-        distance = _fast_norm(x-center)
-        return max(distance - radius, 0.0)
-
-    @jit(nopython=True)
-    def _fast_max_to_sphere(center, radius, x):
-        """Compute the maximum distance of x to a sphere.
-
-        Args:
-        center - a numpy array of floats representing the center coordinate value
-            in each dimension of the sphere.
-        radius - a float representing the radius of the sphere
-        x - a numpy array representing the point.
-
-        Returns:
-        A float representing the maximum distance betwen x and the sphere.
-        """
-        distance = _fast_norm(x-center)
-        return distance + radius
-
-    @jit(nopython=True)
-    def merge_spheres(center1, radius1, center2, radius2):
-        """Merges the 2 speres and computes the new center and radius of the merged sphere.
-
-        Args:
-        center1 - a numpy array of floats representing the center of sphere 1
-        radius1 - a float representing the radius of sphere1
-        center2 - a numpy array of floats representing the center of sphere 2
-        radius2 - a float representing the radius of sphere2
-
-        Returns:
-        A float representing the new radius and a numpy array of floats representing
-        the new center
-        """
-        #accounts for case where one sphere is enclosed in other sphere
-        if radius1 > radius2 and _fast_norm_diff(center1 - center2) + radius2 < radius1:
-            return radius1, center1
-        if radius2 > radius1 and _fast_norm_diff(center1 - center2) + radius1 < radius2:
-            return radius2, center2
-
-        newRadius = (radius1 + radius2 + _fast_norm_diff(center1 - center2))*0.5
-        if radius1>radius2:
-            newCenter = center1 + ((center2-center1) * (newRadius - radius1)/ _fast_norm_diff(center2-center1))
-        else:
-            newCenter = center2 + ((center1-center2) * (newRadius - radius2)/ _fast_norm_diff(center2-center1))
-
-        return newRadius, newCenter
+    distance = _fast_norm(x-center)
+    return max(distance - radius, 0.0)
 
 @jit(nopython=True)
-def _fast_max_to_box(mns, mxs, x):
-    """Compute the maximum distance of x to a bounding box.
-
-    Take a point x and a bounding box defined by two vectors of the min and max
-    coordinate values in each dimension.  Compute the maximum distance of x to
-    the box by computing the maximum distance between x and min or max in each
-    dimension.
+def _fast_max_to_sphere(center, radius, x):
+    """Compute the maximum distance of x to a sphere.
 
     Args:
-    mns - a numpy array of floats representing the minimum coordinate value
-        in each dimension of the bounding box.
-    mxs - a numpy array of floats representing the maximum coordinate value
-        in each dimension of the bounding box.
+    center - a numpy array of floats representing the center coordinate value
+        in each dimension of the sphere.
+    radius - a float representing the radius of the sphere
     x - a numpy array representing the point.
 
     Returns:
-    A float representing the minimum distance betwen x and the box.
+    A float representing the maximum distance betwen x and the sphere.
     """
-    return _fast_norm(np.maximum(mxs - x, x - mns))
+    distance = _fast_norm(x-center)
+    return distance + radius
+
+@jit(nopython=True)
+def merge_spheres(center1, radius1, center2, radius2):
+    """Merges the 2 speres and computes the new center and radius of the merged sphere.
+
+    Args:
+    center1 - a numpy array of floats representing the center of sphere 1
+    radius1 - a float representing the radius of sphere1
+    center2 - a numpy array of floats representing the center of sphere 2
+    radius2 - a float representing the radius of sphere2
+
+    Returns:
+    A float representing the new radius and a numpy array of floats representing
+    the new center
+    """
+    #accounts for case where one sphere is enclosed in other sphere
+    if radius1 > radius2 and _fast_norm_diff(center1 - center2) + radius2 < radius1:
+        return radius1, center1
+    if radius2 > radius1 and _fast_norm_diff(center1 - center2) + radius1 < radius2:
+        return radius2, center2
+
+    newRadius = (radius1 + radius2 + _fast_norm_diff(center1 - center2))*0.5
+    if radius1>radius2:
+        newCenter = center1 + ((center2-center1) * (newRadius - radius1)/ _fast_norm_diff(center2-center1))
+    else:
+        newCenter = center2 + ((center1-center2) * (newRadius - radius2)/ _fast_norm_diff(center2-center1))
+
+    return newRadius, newCenter
+
 
 
 class PNode:
