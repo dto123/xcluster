@@ -158,6 +158,9 @@ class pnode_sphere:
         Returns:
         A pointer to the root.
         """
+
+        print ("SPHERES")
+
         root = self.root()
         if self.pts is not None and len(self.pts) == 0:
             self.add_pt(pt)
