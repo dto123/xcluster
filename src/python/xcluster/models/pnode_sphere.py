@@ -112,7 +112,33 @@ def _fast_min_to_box(mns, mxs, x):
         distance = _fast_norm(x-center)
         return distance + radius
 
+    @jit(nopython=True)
+    def merge_spheres(center1, radius1, center2, radius2):
+        """Merges the 2 speres and computes the new center and radius of the merged sphere.
 
+        Args:
+        center1 - a numpy array of floats representing the center of sphere 1
+        radius1 - a float representing the radius of sphere1
+        center2 - a numpy array of floats representing the center of sphere 2
+        radius2 - a float representing the radius of sphere2
+
+        Returns:
+        A float representing the new radius and a numpy array of floats representing
+        the new center
+        """
+        #accounts for case where one sphere is enclosed in other sphere
+        if radius1 > radius2 and _fast_norm_diff(center1 - center2) + radius2 < radius1:
+            return radius1, center1
+        if radius2 > radius1 and _fast_norm_diff(center1 - center2) + radius1 < radius2:
+            return radius2, center2
+
+        newRadius = (radius1 + radius2 + _fast_norm_diff(center1 - center2))*0.5
+        if radius1>radius2:
+            newCenter = center1 + ((center2-center1) * (newRadius - radius1)/ _fast_norm_diff(center2-center1))
+        else:
+            newCenter = center2 + ((center1-center2) * (newRadius - radius2)/ _fast_norm_diff(center2-center1))
+
+        return newRadius, newCenter
 
 @jit(nopython=True)
 def _fast_max_to_box(mns, mxs, x):
@@ -229,8 +255,8 @@ class PNode:
                     mn = d
             return mn
         else:
-            return _fast_min_to_box(self.mins, self.maxes, x)
-            #return _fast_min_to_sphere(self.center, self.radius, x)
+            #return _fast_min_to_box(self.mins, self.maxes, x)
+            return _fast_min_to_sphere(self.center, self.radius, x)
 
     def max_distance(self, x):
         """Compute the maximum distance between a point x and this node.
@@ -251,8 +277,8 @@ class PNode:
                     mx = d
             return mx
         else:
-            return _fast_max_to_box(self.mins, self.maxes, x)
-            #return _fast_max_to_sphere(self.center, self.radius, x)
+            #return _fast_max_to_box(self.mins, self.maxes, x)
+            return _fast_max_to_sphere(self.center, self.radius, x)
 
     def _update(self):
         """Update self's bounding box and determine if ancestors need update.
@@ -274,14 +300,19 @@ class PNode:
         update.
         """
         if self.children:
-            old_mins = self.mins
-            old_maxs = self.maxes
-            self.mins = np.min(np.array([child.mins
-                                         for child in self.children]), axis=0)
-            self.maxes = np.max(np.array([child.maxes
-                                          for child in self.children]), axis=0)
 
-            #update center here with chan algorithm?
+            old_center = self.center
+            old radius = self.radius
+            #old_mins = self.mins
+            #old_maxs = self.maxes
+            #self.mins = np.min(np.array([child.mins
+            #                             for child in self.children]), axis=0)
+            #self.maxes = np.max(np.array([child.maxes
+            #                              for child in self.children]), axis=0)
+            c0 = self.children[0]
+            c1 = self.children[1]
+
+            self.radius, self.center = merge_spheres(c0.center, c0.radius, c1.center, c1.radius)
 
 
             # Since rotations can remove descendants, it is possible to erase
@@ -304,8 +335,11 @@ class PNode:
             # First, find out if self's mins or maxes changed. If they have, we
             # certainly need to update the parent because we need to update its
             # bounding box.
-            new_mins_or_maxes = (not np.array_equal(self.mins, old_mins)) or (
-                not np.array_equal(self.maxes, old_maxs))
+            #new_mins_or_maxes = (not np.array_equal(self.mins, old_mins)) or (
+            #    not np.array_equal(self.maxes, old_maxs))
+
+            new_center_or_radius = (not np.array_equal(self.center, old.center)) or
+            (not np.array_equal(self.radius, old radius))
 
             # Even if self's bounding box didn't change, if self or its sibling
             # have a pts field that is not None, self's parent must update. This
@@ -315,10 +349,13 @@ class PNode:
             # TODO (AK): parent if self.pount_counter is <= than the threshold.
             still_have_pts = self.pts or (
                 self.parent and self.siblings()[0].pts)
-            return self, new_mins_or_maxes or still_have_pts
+            #return self, new_mins_or_maxes or still_have_pts
+            return self, new_center_or_radius or still_have_pts
         else:
-            self.mins = self.pts[0][0]
-            self.maxes = self.pts[0][0]
+            self.center = self.pts[0][0]
+            self.radius = 0
+            #self.mins = self.pts[0][0]
+            #self.maxes = self.pts[0][0]
             if self.parent:
                 self.parent._update_children_min_d()
                 self.parent._update_children_max_d()
@@ -352,9 +389,10 @@ class PNode:
         if self.children:
             c0 = self.children[0]
             c1 = self.children[1]
-            self.children_min_d = max(
-                min(c0.min_distance(c1.mins), c0.min_distance(c1.maxes)),
-                min(c1.min_distance(c0.mins), c1.min_distance(c0.maxes)))
+            self.children_min_d = c0.min_distance(c1.center) - c1.radius
+            #max(
+                #min(c0.min_distance(c1.mins), c0.min_distance(c1.maxes)),
+                #min(c1.min_distance(c0.mins), c1.min_distance(c0.maxes)))
 
     def _update_children_max_d(self):
         """Update the children_max_d parameter.
@@ -368,9 +406,10 @@ class PNode:
         if self.children:
             c0 = self.children[0]
             c1 = self.children[1]
-            self.children_max_d = min(
-                max(c0.max_distance(c1.mins), c0.max_distance(c1.maxes)),
-                max(c1.max_distance(c0.mins), c1.max_distance(c0.maxes)))
+            self.children_max_d = c0.max_distance(c1.center) + c1.radius
+            #self.children_max_d = min(
+            #    max(c0.max_distance(c1.mins), c0.max_distance(c1.maxes)),
+            #    max(c1.max_distance(c0.mins), c1.max_distance(c0.maxes)))
 
     def a_star_exact(self, pt, heuristic=lambda n, x: n.min_distance(x)):
         """A* search for the nearest neighbor of pt in tree rooted at self.
