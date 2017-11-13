@@ -298,7 +298,7 @@ class pnode_sphere:
             #new_mins_or_maxes = (not np.array_equal(self.mins, old_mins)) or (
             #    not np.array_equal(self.maxes, old_maxs))
 
-            new_center_or_radius = (not np.array_equal(self.center, old.center)) or (not np.array_equal(self.radius, old.radius))
+            new_center_or_radius = (not np.array_equal(self.center, old_center)) or (not np.array_equal(self.radius, old_radius))
 
             # Even if self's bounding box didn't change, if self or its sibling
             # have a pts field that is not None, self's parent must update. This
