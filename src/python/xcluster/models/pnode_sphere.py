@@ -119,7 +119,7 @@ def merge_spheres(center1, radius1, center2, radius2):
 
 
 
-class PNode:
+class pnode_sphere:
     """PERCH node."""
     def __init__(self, exact_dist_thres=10):
         self.id = "id" + ''.join(random.choice(
@@ -509,7 +509,8 @@ class PNode:
         Returns:
         A pointer to the new node containing pt.
         """
-        new_internal = PNode(exact_dist_thres=self.exact_dist_threshold)
+        #new_internal = PNode(exact_dist_thres=self.exact_dist_threshold)
+        new_internal = pnode_sphere(exact_dist_thres=self.exact_dist_threshold)
         # If we are splitting down from a collapsed node, then the pts array
         # is already set to None and we shouldn't instantiate one.
         if self.pts is not None:
@@ -525,7 +526,8 @@ class PNode:
         else:
             new_internal.add_child(self)
 
-        new_leaf = PNode(exact_dist_thres=self.exact_dist_threshold)
+        new_leaf = pnode_sphere(exact_dist_thres=self.exact_dist_threshold)
+        #new_leaf = PNode(exact_dist_thres=self.exact_dist_threshold)
         new_leaf.add_pt(pt)  # This updates the points counter.
         new_internal.add_child(new_leaf)
         new_internal.add_pt(pt) # This updates the points counter.
@@ -549,7 +551,8 @@ class PNode:
         self.parent.deleted = True
 
         # Make the aunt and self have the same parent
-        new_parent = PNode(exact_dist_thres=self.exact_dist_threshold)
+        #new_parent = PNode(exact_dist_thres=self.exact_dist_threshold)
+        new_parent = pnode_sphere(exact_dist_thres=self.exact_dist_threshold)
         new_parent.pts = None
         new_parent.add_child(aunt)
         new_parent.add_child(self)
