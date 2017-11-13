@@ -20,7 +20,7 @@ import os
 import sys
 import errno
 
-from xcluster.models.PNode import PNode, pnode_sphere
+from xcluster.models.pnode_sphere import pnode_sphere
 
 from xcluster.utils.serialize_trees import \
     serliaze_tree_to_file_with_point_ids,\
