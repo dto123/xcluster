@@ -102,6 +102,7 @@ def merge_spheres(center1, radius1, center2, radius2):
     A float representing the new radius and a numpy array of floats representing
     the new center
     """
+    print "MERGE SPHERES"
     #accounts for case where one sphere is enclosed in other sphere
     if radius1 > radius2 and _fast_norm_diff(center1 - center2) + radius2 < radius1:
         return radius1, center1
