@@ -88,7 +88,7 @@ def _fast_max_to_sphere(center, radius, x):
     distance = _fast_norm(x-center)
     return distance + radius
 
-@jit(nopython=True)
+
 def merge_spheres(center1, radius1, center2, radius2):
     """Merges the 2 speres and computes the new center and radius of the merged sphere.
 
