@@ -878,13 +878,14 @@ class pnode_sphere:
         if self.parent and self.parent.parent:
             aunt = self.aunts()[0]
             sib_max_dist = self.parent.children_max_d
-            aunt_min_dist = min(aunt.min_distance(self.mins),
-                                aunt.min_distance(self.maxes))
-            other_min_dist = min(self.min_distance(aunt.mins),
-                                 self.min_distance(aunt.maxes))
+            #aunt_min_dist = min(aunt.min_distance(self.mins),
+            #                    aunt.min_distance(self.maxes))
+            aunt_min_dist = aunt.min_distance(self.center) - self.radius
+            #other_min_dist = min(self.min_distance(aunt.mins),
+            #                     self.min_distance(aunt.maxes))
             # Since oth min distances are lower bounds, we can use the bigger
             # one safely (it's more accurate).
-            largest_aunt_min_dist = max(aunt_min_dist, other_min_dist)
+            largest_aunt_min_dist = aunt_min_dist
             return sib_max_dist > largest_aunt_min_dist
         else:
             return False
