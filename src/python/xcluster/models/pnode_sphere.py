@@ -262,7 +262,7 @@ class pnode_sphere:
         if self.children:
 
             old_center = self.center
-            old radius = self.radius
+            old_radius = self.radius
             #old_mins = self.mins
             #old_maxs = self.maxes
             #self.mins = np.min(np.array([child.mins
