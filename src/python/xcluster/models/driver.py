@@ -1,5 +1,6 @@
 import numpy as np
 from PCA import PCA
+from autoencoder import reduceData
 
 def loadData(filename):
     pid = []
@@ -33,10 +34,12 @@ def main():
     #ilsvrc12_50k has 2048 dimensions
     #imagenet has 2048 dimensions
 
-    pca = PCA(np.array(p), d)
-    print pca.shape
-
-    f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
+    #pca = PCA(np.array(p), d)
+    #encoder = reduceData(np.array(p), d)
+    #print pca.shape
+    autoencoder = autoencoder(np.array(p), 2)
+    f= open("../../../../data/Autoencoder_data_glass_dim_2.tsv", "w")
+    #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
@@ -44,7 +47,8 @@ def main():
         line = []
         line.append(pid[i])
         line.append(cid[i])
-        line.extend(list(pca[i,:]))
+        #line.extend(list(pca[i,:]))
+        line.extend(list(autoencoder[i,:]))
 
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
