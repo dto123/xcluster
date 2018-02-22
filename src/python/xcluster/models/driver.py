@@ -26,7 +26,7 @@ def main():
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
-    d = np.shape(np.array(p))
+    #d = np.shape(np.array(p))
     #d = np.shape(np.array(p))[1]
     print "hey"
     #aloi has 128 dimensions
@@ -34,7 +34,7 @@ def main():
     #ilsvrc12_50k has 2048 dimensions
     #imagenet has 2048 dimensions
 
-    pca = PCA(np.array(p), d)
+    pca = PCA(np.array(p), 2)
     #encoder = reduceData(np.array(p), d)
     print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
