@@ -1,6 +1,6 @@
 import numpy as np
 from PCA import PCA
-#from autoencoder import reduceData
+from autoencoder import reduceData
 
 def loadData(filename):
     pid = []
