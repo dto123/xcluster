@@ -132,10 +132,10 @@ class AutoEncoder(nn.Module):
         decoded = self.decoder(encoded)
         return encoded, decoded
 
-encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
+#encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
 #return reduceData(dataset)
 # return encoder_data
-print(type(encoded_data))
-encoded_data =encoded_data.data.numpy()
-print(encoded_data.shape)
-print(encoded_data)
+#print(type(encoded_data))
+#encoded_data =encoded_data.data.numpy()
+#print(encoded_data.shape)
+#print(encoded_data)
