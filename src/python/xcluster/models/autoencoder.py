@@ -95,7 +95,7 @@ def reduceData(data, output_dim):
     # visualize in 3D plot
     view_data = Variable(train_data.view(-1, input_dim))
     encoded_data, _ = autoencoder(view_data)
-    
+
     print(encoded_data.shape)
     return encoded_data
 
@@ -132,9 +132,10 @@ class AutoEncoder(nn.Module):
         decoded = self.decoder(encoded)
         return encoded, decoded
 
-#encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
+encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
 #return reduceData(dataset)
-#print(type(encoded_data))
-#encoded_data =encoded_data.data.numpy()
-#print(encoded_data.shape)
-#print(encoded_data)
+# return encoder_data
+print(type(encoded_data))
+encoded_data =encoded_data.data.numpy()
+print(encoded_data.shape)
+print(encoded_data)
