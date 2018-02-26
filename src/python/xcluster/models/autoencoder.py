@@ -34,6 +34,7 @@ def reduceData(data, output_dim):
     #converting train data into torch
     train_data = torch.from_numpy(training)
     train_data = train_data.type(torch.FloatTensor)
+
     points, input_dim = train_data.size()
     print (train_data.size())
 
@@ -65,6 +66,8 @@ def reduceData(data, output_dim):
             b_x = Variable(x.view(-1, input_dim))   # batch x, shape (batch, 28*28)
             b_y = Variable(x.view(-1, input_dim))   # batch y, shape (batch, 28*28)
 
+            b_x = b_x.cuda()
+            b_y = b_y.cuda()
             #b_label = Variable(y)               # batch label
 
             encoded, decoded = autoencoder(b_x)
@@ -83,9 +86,11 @@ def reduceData(data, output_dim):
 
                     encodedDev, decodedDev = autoencoder(dev_x)
 
+
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
 
                 if lossDev < bestLoss:
+                    autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")
 
     autoencoder = torch.load("model.torch")
