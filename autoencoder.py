@@ -59,7 +59,7 @@ def reduceData(data, output_dim):
     optimizer = torch.optim.Adam(autoencoder.parameters(), lr=LR)
     loss_func = nn.MSELoss()
 
-    bestLoss = math.inf
+    bestLoss = float('inf')
     for epoch in range(EPOCH):
         for step, (x, y) in enumerate(train_loader):
             b_x = Variable(x.view(-1, input_dim))   # batch x, shape (batch, 28*28)
@@ -95,7 +95,7 @@ def reduceData(data, output_dim):
     # visualize in 3D plot
     view_data = Variable(train_data.view(-1, input_dim))
     encoded_data, _ = autoencoder(view_data)
-    
+
     print(encoded_data.shape)
     return encoded_data
 
