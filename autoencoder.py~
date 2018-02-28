@@ -59,6 +59,7 @@ def reduceData(data, output_dim):
     optimizer = torch.optim.Adam(autoencoder.parameters(), lr=LR)
     loss_func = nn.MSELoss()
 
+    print ("inf")
     #inf
     bestLoss = float('inf')
     for epoch in range(EPOCH):
