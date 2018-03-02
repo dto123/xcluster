@@ -35,12 +35,17 @@ def reduceData(data, output_dim):
     train_data = torch.from_numpy(training)
     train_data = train_data.type(torch.FloatTensor)
 
+    train_data = train_data.cuda()
+
     points, input_dim = train_data.size()
     print (train_data.size())
 
     #converting development data into torch
     dev_data = torch.from_numpy(development)
     dev_data = dev_data.type(torch.FloatTensor)
+
+    dev_data = dev_data.cuda()
+
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
@@ -60,7 +65,8 @@ def reduceData(data, output_dim):
     optimizer = torch.optim.Adam(autoencoder.parameters(), lr=LR)
     loss_func = nn.MSELoss()
 
-    bestLoss = math.inf
+    #bestLoss = math.inf
+    bestLoss = float("inf")
     for epoch in range(EPOCH):
         for step, (x, y) in enumerate(train_loader):
             b_x = Variable(x.view(-1, input_dim))   # batch x, shape (batch, 28*28)
@@ -69,6 +75,8 @@ def reduceData(data, output_dim):
             b_x = b_x.cuda()
             b_y = b_y.cuda()
             #b_label = Variable(y)               # batch label
+
+            autoencoder = autoencoder.cuda()
 
             encoded, decoded = autoencoder(b_x)
 

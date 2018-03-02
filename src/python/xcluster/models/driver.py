@@ -36,6 +36,8 @@ def main():
 
     #pca = PCA(np.array(p), 2)
     encoder = reduceData(np.array(p), 2)
+
+    train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     f= open("../../../../data/Autoencoder_data_glass_dim_2.tsv", "w")
@@ -43,12 +45,12 @@ def main():
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
-    for i in range(len(pid)):
+    for i in range(train_dim):
         line = []
         line.append(pid[i])
         line.append(cid[i])
         #line.extend(list(pca[i,:]))
-        line.extend(list(autoencoder[i,:]))
+        line.extend(list(encoder[i,:]))
 
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
