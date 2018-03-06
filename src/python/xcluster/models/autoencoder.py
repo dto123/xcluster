@@ -146,7 +146,7 @@ class AutoEncoder(nn.Module):
 
 
             #1 One Hidden Layer
-            nn.Linear(input_dim, output_dim),
+            nn.Linear(output_dim, input_dim),
             nn.Tanh(),
 
 
