@@ -30,6 +30,7 @@ def main():
     d = shape[1]
     #d = np.shape(np.array(p))[1]
     print "hey"
+    d = d/2
     print d
     #aloi has 128 dimensions
     #speaker has 600 dimensions
@@ -42,7 +43,7 @@ def main():
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_data_glass_dim_d_oneHL.tsv", "w")
+    f= open("../../../../data/Autoencoder_data_glass_dim_.5d_oneHL.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
