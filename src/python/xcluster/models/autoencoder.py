@@ -119,20 +119,20 @@ def reduceData(data, output_dim):
 class AutoEncoder(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(AutoEncoder, self).__init__()
-
+        d_prime = (input_dim+output_dim)/2
         self.encoder = nn.Sequential(
 
             #1 One Hidden Layer
-            nn.Linear(input_dim, output_dim),
-            nn.Tanh(),
+            #nn.Linear(input_dim, output_dim),
+            #nn.Tanh(),
 
             #2 Two Hidden Layers
             #d_prime_1 = (input_dim+output_dim)/2
             #d_prime_2 = input_dim
 
-            #nn.Linear(input_dim, d_prime)
-            #nn.Tanh()
-            #nn.Linear(d_prime, output_dim)
+            nn.Linear(input_dim, d_prime),
+            nn.Tanh(),
+            nn.Linear(d_prime, output_dim),
 
             #3 Two Hidden Layers
 
@@ -146,17 +146,17 @@ class AutoEncoder(nn.Module):
 
 
             #1 One Hidden Layer
-            nn.Linear(output_dim, input_dim),
-            nn.Tanh(),
+            #nn.Linear(output_dim, input_dim),
+            #nn.Tanh(),
 
 
             #2 Two Hidden Layers
             #d_prime_1 = (input_dim+output_dim)/2
             #d_prime_2 = input_dim
 
-            #nn.Linear(input_dim, d_prime)
-            #nn.Tanh()
-            #nn.Linear(d_prime, output_dim)
+            nn.Linear(output_dim, d_prime),
+            nn.Tanh(),
+            nn.Linear(d_prime, input_dim),
 
             #3 Two Hidden Layers
 
