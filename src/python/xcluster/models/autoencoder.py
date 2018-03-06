@@ -119,7 +119,8 @@ def reduceData(data, output_dim):
 class AutoEncoder(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(AutoEncoder, self).__init__()
-        d_prime = (input_dim+output_dim)/2
+        #d_prime = (input_dim+output_dim)/2
+        d_prime = input_dim
         self.encoder = nn.Sequential(
 
             #1 One Hidden Layer
