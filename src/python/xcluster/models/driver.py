@@ -26,7 +26,8 @@ def main():
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
-    d = np.shape(np.array(p))
+    shape = np.shape(np.array(p))
+    d = shape[1]
     #d = np.shape(np.array(p))[1]
     print "hey"
     print d
