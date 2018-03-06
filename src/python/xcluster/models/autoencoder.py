@@ -121,15 +121,38 @@ class AutoEncoder(nn.Module):
         super(AutoEncoder, self).__init__()
 
         self.encoder = nn.Sequential(
+            """
             nn.Linear(input_dim, 128),
             nn.Tanh(),
             nn.Linear(128, 64),
             nn.Tanh(),
             nn.Linear(64, 12),
             nn.Tanh(),
-            nn.Linear(12, output_dim),   # compress to 3 features which can be visualized in plt
+            nn.Linear(12, output_dim),
+            """
+
+            #1 One Hidden Layer
+            nn.Linear(input_dim, output_dim)
+            nn.Tanh()
+            """
+            #2 Two Hidden Layers
+            d_prime_1 = (input_dim+output_dim)/2
+            d_prime_2 = input_dim
+
+            nn.Linear(input_dim, d_prime)
+            nn.Tanh()
+            nn.Linear(d_prime, output_dim)
+
+            #3 Two Hidden Layers
+
+            nn.Linear(input_dim, d_prime)
+            nn.Tanh()
+            nn.Linear(d_prime, output_dim)
+            nn.Tanh()
+            """
         )
         self.decoder = nn.Sequential(
+            """
             nn.Linear(output_dim, 12),
             nn.Tanh(),
             nn.Linear(12, 64),
@@ -137,7 +160,28 @@ class AutoEncoder(nn.Module):
             nn.Linear(64, 128),
             nn.Tanh(),
             nn.Linear(128, input_dim),
-            nn.Sigmoid(),       # compress to a range (0, 1)
+            """
+
+            #1 One Hidden Layer
+            nn.Linear(input_dim, output_dim)
+            nn.Tanh()
+
+            """
+            #2 Two Hidden Layers
+            d_prime_1 = (input_dim+output_dim)/2
+            d_prime_2 = input_dim
+
+            nn.Linear(input_dim, d_prime)
+            nn.Tanh()
+            nn.Linear(d_prime, output_dim)
+
+            #3 Two Hidden Layers
+
+            nn.Linear(input_dim, d_prime)
+            nn.Tanh()
+            nn.Linear(d_prime, output_dim)
+            nn.Tanh()
+            """
         )
 
     def forward(self, x):
