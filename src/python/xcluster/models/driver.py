@@ -30,7 +30,8 @@ def main():
     d = shape[1]
     #d = np.shape(np.array(p))[1]
     print "hey"
-    d = 3d/4
+
+    d = (3*d)/4
     print d
     #aloi has 128 dimensions
     #speaker has 600 dimensions
