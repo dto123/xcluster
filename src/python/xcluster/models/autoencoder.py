@@ -120,8 +120,8 @@ class AutoEncoder(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(AutoEncoder, self).__init__()
         #d_prime_1 is longer one
-        d_prime = (input_dim+output_dim)/2
-        #d_prime = input_dim
+        #d_prime = (input_dim+output_dim)/2
+        d_prime = input_dim
         self.encoder = nn.Sequential(
 
             #1 One Hidden Layer
@@ -135,7 +135,7 @@ class AutoEncoder(nn.Module):
             nn.Linear(input_dim, d_prime),
             nn.Tanh(),
             nn.Linear(d_prime, output_dim),
-
+            nn.Tanh(),
             #3 Two Hidden Layers
 
             #nn.Linear(input_dim, d_prime)
@@ -159,7 +159,7 @@ class AutoEncoder(nn.Module):
             nn.Linear(output_dim, d_prime),
             nn.Tanh(),
             nn.Linear(d_prime, input_dim),
-
+            nn.Tanh(),
             #3 Two Hidden Layers
 
             #nn.Linear(input_dim, d_prime)
