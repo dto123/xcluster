@@ -40,12 +40,12 @@ def main():
     #imagenet has 2048 dimensions
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), d)
+    encoder = reduceData(np.array(p), 2)
 
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_data_glass_dim_.5d_twoHL_dprime2.tsv", "w")
+    f= open("../../../../data/Autoencoder_data_glass_dim_2_threeHL_dprime1.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
