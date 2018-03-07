@@ -4,8 +4,8 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/Autoencoder_data_glass_2_oneHL.tsv
-dataset_name=Autoencoder_data_glass_2_oneHL.tsv
+dataset_file=$XCLUSTER_ROOT/data/Autoencoder_data_glass_dim_2_oneHL.tsv
+dataset_name=Autoencoder_data_glass_dim_2_oneHL.tsv
 
 num_runs=10
 num_threads=4
