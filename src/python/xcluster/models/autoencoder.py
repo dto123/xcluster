@@ -110,7 +110,7 @@ def reduceData(data, output_dim):
     encoded_data, _ = autoencoder(view_data)
 
     print(encoded_data.shape)
-    return encoded_data.data[0]
+    return encoded_data.data
     #return encoded_data
 
 
