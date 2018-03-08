@@ -29,11 +29,11 @@ def main():
     shape = np.shape(np.array(p))
     d = shape[1]
     #d = np.shape(np.array(p))[1]
-    print "hey"
+    print ("hey")
 
     #d = (3*d)/4
     d = d/2
-    print d
+    print(d)
     #aloi has 128 dimensions
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
