@@ -33,14 +33,14 @@ def main():
 
     #d = (3*d)/4
     d = d/2
-    print(d)
+    #print(d)
     #aloi has 128 dimensions
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
     #imagenet has 2048 dimensions
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 3)
+    encoder = reduceData(np.array(p), 7)
 
     #print type(encoder)
 
@@ -49,7 +49,7 @@ def main():
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_data_glass_dim_3_oneHL.tsv", "w")
+    f= open("../../../../data/Autoencoder_data_glass_dim_7_oneHL.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
