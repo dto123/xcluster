@@ -55,7 +55,7 @@ def main():
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
-    for i in range(174):
+    for i in range(171):
         line = []
         line.append(pid[i])
         line.append(cid[i])
