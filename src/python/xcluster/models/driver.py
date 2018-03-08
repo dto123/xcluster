@@ -61,7 +61,7 @@ def main():
         line.append(cid[i])
         #line.extend(list(pca[i,:]))
         #line.extend(list(encoder[i,:]))
-        line.extend(list(encoder[i]))
+        line.extend(list(encoder[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
 
