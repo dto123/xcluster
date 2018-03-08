@@ -42,6 +42,7 @@ def main():
     #pca = PCA(np.array(p), 2)
     encoder = reduceData(np.array(p), 7)
 
+    print encoder
     #print type(encoder)
 
 
