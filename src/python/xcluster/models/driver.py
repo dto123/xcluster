@@ -46,7 +46,7 @@ def main():
 
 
 
-    train_dim, new_dim =encoder.shape
+    #train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     f= open("../../../../data/Autoencoder_data_glass_dim_7_oneHL.tsv", "w")
@@ -54,7 +54,7 @@ def main():
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
-    for i in range(train_dim):
+    for i in range(174):
         line = []
         line.append(pid[i])
         line.append(cid[i])
