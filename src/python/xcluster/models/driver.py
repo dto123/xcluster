@@ -21,8 +21,8 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/glass.tsv")
-    pid,cid,p = loadData("../../../../data/aloi.tsv")
+    pid,cid,p = loadData("../../../../data/glass.tsv")
+    #pid,cid,p = loadData("../../../../data/aloi.tsv")
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
@@ -30,6 +30,7 @@ def main():
     print (shape)
     #d = np.shape(np.array(p))[1]
     print ("hey")
+    print dog
     #print p.shape
     #d = (3*d)/4
     #d = d/2
