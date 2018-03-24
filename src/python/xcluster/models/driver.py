@@ -27,13 +27,13 @@ def main():
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
-    d = shape[1]
+    print (shape)
     #d = np.shape(np.array(p))[1]
     print ("hey")
     #print p.shape
     #d = (3*d)/4
     #d = d/2
-    print(d)
+    #print(d)
     #aloi has 128 dimensions
     #speaker has 600 dimensions
     #ilsvrc12_50k has 2048 dimensions
