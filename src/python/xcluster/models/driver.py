@@ -30,7 +30,7 @@ def main():
     #d = shape[1]
     #d = np.shape(np.array(p))[1]
     print ("hey")
-
+    print p.shape
     #d = (3*d)/4
     #d = d/2
     #print(d)
@@ -47,7 +47,7 @@ def main():
 
 
 
-    #train_dim, new_dim =encoder.shape
+    train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     f= open("../../../../data/Autoencoder_data_ALOI_dim_2_twoHL_dprime2.tsv", "w")
