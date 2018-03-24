@@ -21,7 +21,7 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    pid,cid,p = loadData("../../../../data/glass.tsv")
+    #pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
     pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
@@ -30,7 +30,7 @@ def main():
     print (shape)
     #d = np.shape(np.array(p))[1]
     print ("hey")
-    print dog
+    #print dog
     #print p.shape
     #d = (3*d)/4
     #d = d/2
@@ -51,7 +51,7 @@ def main():
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_data_ALOI_dim_2_twoHL_dprime2.tsv", "w")
+    f= open("../../../../data/Autoencoder_data_Speaker_dim_2_twoHL_dprime2.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
