@@ -30,7 +30,7 @@ def main():
     #d = shape[1]
     #d = np.shape(np.array(p))[1]
     print ("hey")
-    print p.shape
+    #print p.shape
     #d = (3*d)/4
     #d = d/2
     #print(d)
