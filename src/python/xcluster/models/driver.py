@@ -50,7 +50,7 @@ def main():
     #train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_final_data_glass_dim_7_twoHL_dprime1.tsv", "w")
+    f= open("../../../../data/Autoencoder_final_data_glass_dim_7_twoHL_dprime2.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
