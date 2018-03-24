@@ -23,7 +23,7 @@ def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
     pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
-    #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
+    pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
