@@ -141,7 +141,7 @@ class AutoEncoder(nn.Module):
             nn.Linear(input_dim, d_prime),
             nn.Tanh(),
             nn.Linear(d_prime, output_dim),
-            nn.Tanh(),
+            #nn.Tanh(),
 
         )
         self.decoder = nn.Sequential(
@@ -159,7 +159,7 @@ class AutoEncoder(nn.Module):
             nn.Linear(output_dim, d_prime),
             nn.Tanh(),
             nn.Linear(d_prime, input_dim),
-            nn.Tanh(),
+            #nn.Tanh(),
             #3 Two Hidden Layers
 
             #nn.Linear(input_dim, d_prime)
