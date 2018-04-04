@@ -12,5 +12,5 @@ def main():
         corner2_x = (center[0] + (0.5*x*delta))
         corner2_y = (center[1] + (0.5*y*delta))
         corners.append((corner1_x, corner1_y), corner2_x, corner2_y)
-    print corners
+    print (corners)
 main()
