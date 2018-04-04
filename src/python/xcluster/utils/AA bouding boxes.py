@@ -21,5 +21,5 @@ def main():
         random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
         print (random_datapoints.shape)
         list_of_data.append(random_datapoints)
-    print (list_of_data.shape)
+    print len(list_of_data)
 main()
