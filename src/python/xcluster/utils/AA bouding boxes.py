@@ -17,9 +17,8 @@ def main():
         datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
         datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
 
-
         random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
         print (random_datapoints.shape)
         list_of_data.append(random_datapoints)
-    print len(list_of_data)
+    print (len(list_of_data))
 main()
