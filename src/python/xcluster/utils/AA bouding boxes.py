@@ -15,6 +15,8 @@ def main():
 
         datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
         datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
+        print (datapoints_x.shape())
+        print (datapoints_y.shape())
 
         datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
         print (datapoints.shape())
