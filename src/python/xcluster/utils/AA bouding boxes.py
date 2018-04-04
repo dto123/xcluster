@@ -5,6 +5,7 @@ def main():
     centers, delta = gen_k_centers(2, 2)
     corners = []
     #datapoints = []
+    list_of_data = []
     for center in centers:
         x = np.random.uniform(0, 1)
         y = np.random.uniform(0, 1)
@@ -15,10 +16,10 @@ def main():
 
         datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
         datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
-        print (datapoints_x.shape())
-        print (datapoints_y.shape())
 
-        datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
-        print (datapoints.shape())
 
+        random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
+        print (random_datapoints.shape)
+        list_of_data.append(random_datapoints)
+    print (list_of_data.shape)
 main()
