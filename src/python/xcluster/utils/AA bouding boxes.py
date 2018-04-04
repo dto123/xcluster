@@ -4,7 +4,7 @@ import numpy as np
 def main():
     centers, delta = gen_k_centers(2, 2)
     corners = []
-    datapoints = []
+    #datapoints = []
     for center in centers:
         x = np.random.uniform(0, 1)
         y = np.random.uniform(0, 1)
@@ -17,6 +17,6 @@ def main():
         datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
 
         datapoints = np.vstack((datapoints_x, datapoints_y)).T
-        print datapoints.shape()
+        print (datapoints.shape())
 
 main()
