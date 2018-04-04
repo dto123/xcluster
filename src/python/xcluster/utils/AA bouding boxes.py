@@ -6,3 +6,5 @@ def main():
 
     return centers
     return delta
+
+main()
