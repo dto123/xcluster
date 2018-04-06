@@ -22,7 +22,7 @@ def main():
         list_of_data.append(random_datapoints)
 
     print (len(list_of_data))
-    W = np.rand((dim,dim))
+    W = np.random.rand((dim,dim))
     for points in list_of_data:
         newpoints = np.matmul(points, W)
         rotated_data.append(newpoints)
