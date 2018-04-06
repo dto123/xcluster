@@ -20,6 +20,8 @@ def main():
         random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
         print (random_datapoints.shape)
         list_of_data.append(random_datapoints)
+    
+
 
     print (len(list_of_data))
     W = np.random.rand(dim,dim)
@@ -28,6 +30,8 @@ def main():
         rotated_data.append(newpoints)
     print (len(rotated_data))
 
+    final_data = np.vstack(list_of_data)
+    final_rotated data = np.vstack(rotated_data)
 
 
 main()
