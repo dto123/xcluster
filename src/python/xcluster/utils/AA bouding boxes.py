@@ -24,7 +24,7 @@ def main():
         cluster = 1
         for i in range(25):
             clusterList.append(np.array(cluster))
-        cluster++
+        cluster+=1
 
 
 
