@@ -7,6 +7,7 @@ def main():
     list_of_data = []
     rotated_data = []
     clusterList = []
+    cluster = 1
     for center in centers:
         x = np.random.uniform(0, 1)
         y = np.random.uniform(0, 1)
@@ -21,7 +22,7 @@ def main():
         random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
         #print (random_datapoints.shape)
         list_of_data.append(random_datapoints)
-        cluster = 1
+
         for i in range(25):
             clusterList.append(np.array(cluster))
         cluster+=1
