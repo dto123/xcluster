@@ -44,7 +44,7 @@ def main():
     pidList = []
     for a in range(d1):
         one = np.array(a)
-        newList.append(one)
+        pidList.append(one)
 
     clusterList = np.asarray(clusterList)[...,None]
     pidList = np.asarray(pidList)[...,None]
