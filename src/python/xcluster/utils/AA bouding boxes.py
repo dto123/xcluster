@@ -50,17 +50,31 @@ def main():
     clusterList = np.asarray(clusterList)[...,None]
     pidList = np.asarray(pidList)[...,None]
 
-
-    print (final_data.shape)
-    print (final_rotated_data.shape)
-
-    print (pidList.shape)
-    print (clusterList.shape)
-
     last_data = np.hstack((clusterList, final_data))
     Finalized_data = np.hstack((pidList, last_data))
 
-    print (Finalized_data)
+
+
+
+
+    pid,cid,p = Finalized_data
+
+    print (pid)
+    print (cid)
+    print (p)
+
+
+
+
+
+
+
+
+
+
+
+
+
     #print (last_data.shape)
     #print (pidList)
     #print (clusterList)
