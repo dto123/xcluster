@@ -56,7 +56,7 @@ def main():
     print (pidList.shape)
     print (clusterList.shape)
 
-    last_data = np.hstack(clusterList, final_data)
-    last_data = np.hstack(pidList, last_data)
+    last_data = np.hstack((clusterList, final_data))
+    last_data = np.hstack((pidList, last_data))
     print (last_data.shape)
 main()
