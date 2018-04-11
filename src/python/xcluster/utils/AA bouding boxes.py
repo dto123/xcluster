@@ -24,7 +24,7 @@ def main():
         list_of_data.append(random_datapoints)
 
         for i in range(25):
-            clusterList.append(np.array(cluster))
+            clusterList.append(cluster)
         cluster+=1
 
 
@@ -44,26 +44,29 @@ def main():
     d1, d2 = final_data.shape
     pidList = []
     for a in range(d1):
-        one = np.array(a)
-        pidList.append(one)
+        pidList.append(a)
 
-    clusterList = np.asarray(clusterList)[...,None].astype(int)
-    pidList = np.asarray(pidList)[...,None].astype(int)
+    #clusterList = np.asarray(clusterList)[...,None].astype(int)
+    #pidList = np.asarray(pidList)[...,None].astype(int)
 
-    print(pidList)
+    #print(pidList)
 
-    last_data = np.hstack((clusterList, final_data))
-    Finalized_data = np.hstack((pidList, last_data))
-
-
-    #print (Finalized_data)
+    #last_data = np.hstack((clusterList, final_data))
+    #Finalized_data = np.hstack((pidList, last_data))
 
 
-    #pid,cid,p = Finalized_data
+    f= open("../../../../data/2d_unrotated_data.tsv", "w")
 
-    #print (pid)
-    #print (cid)
-    #print (p)
+    for i in range(d1):
+        line = []
+        line.append(pidList[i])
+        line.append(clusterList[i])
+        line.extend(list(final_data[i,:]))
+        f.write("%s\n"%"\t".join([str(x) for x in line]))
+        #print("%s\n"%"\t".join([str(x) for x in line]))
+
+    #print pca
+    f.close()
 
 
 
