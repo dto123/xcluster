@@ -50,11 +50,13 @@ def main():
     clusterList = np.asarray(clusterList)[...,None].astype(int)
     pidList = np.asarray(pidList)[...,None].astype(int)
 
+    print(pidList)
+
     last_data = np.hstack((clusterList, final_data))
     Finalized_data = np.hstack((pidList, last_data))
 
 
-    print (Finalized_data)
+    #print (Finalized_data)
 
 
     #pid,cid,p = Finalized_data
