@@ -3,7 +3,7 @@ import numpy as np
 
 def main():
     dim = 2
-    centers, delta = gen_k_centers(3, dim)
+    centers, delta = gen_k_centers(15, dim)
     list_of_data = []
     rotated_data = []
     clusterList = []
@@ -46,6 +46,8 @@ def main():
     for a in range(d1):
         pidList.append(a)
 
+    print(final_data.shape)
+
     #clusterList = np.asarray(clusterList)[...,None].astype(int)
     #pidList = np.asarray(pidList)[...,None].astype(int)
 
@@ -55,7 +57,7 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/2d_rotated_data.tsv", "w")
+    f= open("../../../../data/2d_rotated_data_15_clusters.tsv", "w")
 
     for i in range(d1):
         line = []
