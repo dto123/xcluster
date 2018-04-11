@@ -54,14 +54,14 @@ def main():
     Finalized_data = np.hstack((pidList, last_data))
 
 
+    print (Finalized_data)
 
 
+    #pid,cid,p = Finalized_data
 
-    pid,cid,p = Finalized_data
-
-    print (pid)
-    print (cid)
-    print (p)
+    #print (pid)
+    #print (cid)
+    #print (p)
 
 
 
