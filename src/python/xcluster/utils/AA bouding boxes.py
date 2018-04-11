@@ -47,8 +47,8 @@ def main():
         one = np.array(a)
         pidList.append(one)
 
-    clusterList = np.asarray(clusterList)[...,None]
-    pidList = np.asarray(pidList)[...,None]
+    clusterList = np.asarray(clusterList)[...,None].astype(int)
+    pidList = np.asarray(pidList)[...,None].astype(int)
 
     last_data = np.hstack((clusterList, final_data))
     Finalized_data = np.hstack((pidList, last_data))
