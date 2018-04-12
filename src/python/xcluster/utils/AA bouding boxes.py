@@ -8,25 +8,42 @@ def main():
     rotated_data = []
     clusterList = []
     cluster = 1
-    for center in centers:
-        x = np.random.uniform(0, 1)
-        y = np.random.uniform(0, 1)
-        corner1_x = (center[0] - (0.5*x*delta))
-        corner1_y = (center[1] - (0.5*y*delta))
-        corner2_x = (center[0] + (0.5*x*delta))
-        corner2_y = (center[1] + (0.5*y*delta))
 
-        datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
-        datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
+    if (dim == 2):
+        for center in centers:
+            x = np.random.uniform(0, 1)
+            y = np.random.uniform(0, 1)
+            corner1_x = (center[0] - (0.5*x*delta))
+            corner1_y = (center[1] - (0.5*y*delta))
+            corner2_x = (center[0] + (0.5*x*delta))
+            corner2_y = (center[1] + (0.5*y*delta))
 
-        random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
-        #print (random_datapoints.shape)
-        list_of_data.append(random_datapoints)
+            datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
+            datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
 
-        for i in range(25):
-            clusterList.append(cluster)
-        cluster+=1
+            random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
+            #print (random_datapoints.shape)
+            list_of_data.append(random_datapoints)
 
+            for i in range(25):
+                clusterList.append(cluster)
+            cluster+=1
+    else:
+        for center in centers:
+            dim_List = []
+            for d in range(dim):
+                x = np.random.uniform(0, 1)
+                corner1_x = (center[d] - (0.5*x*delta))
+                corner2_x = (center[d] + (0.5*x*delta))
+                datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
+                dim_List.append(datapoints_x)
+            random_datapoints = np.transpose(np.vstack(np.asarray(dim_List)))
+            list_of_data.append(random_datapoints)
+
+
+            for i in range(25):
+                clusterList.append(cluster)
+            cluster+=1
 
 
     theta = np.radians(45)
