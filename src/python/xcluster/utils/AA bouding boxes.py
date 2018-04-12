@@ -76,13 +76,13 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/50d_projected_data_50_clusters.tsv", "w")
+    f= open("../../../../data/50d_nonprojected_data_50_clusters.tsv", "w")
 
     for i in range(d1):
         line = []
         line.append(pidList[i])
         line.append(clusterList[i])
-        line.extend(list(final_rotated_data[i,:]))
+        line.extend(list(final_data[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
 
