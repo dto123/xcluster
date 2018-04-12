@@ -2,8 +2,8 @@ from deltasep_utils import gen_k_centers
 import numpy as np
 
 def main():
-    dim = 2
-    centers, delta = gen_k_centers(75, dim)
+    dim = 25
+    centers, delta = gen_k_centers(25, dim)
     list_of_data = []
     rotated_data = []
     clusterList = []
@@ -53,7 +53,7 @@ def main():
     #print (len(list_of_data))
     W = np.random.rand(dim,dim)
     for points in list_of_data:
-        newpoints = np.matmul(points, R)
+        newpoints = np.matmul(points, W)
         rotated_data.append(newpoints)
     #print (len(rotated_data))
 
@@ -66,7 +66,7 @@ def main():
         pidList.append(a)
 
     print(final_data.shape)
-
+    print(final_rotated_data.shape)
     #clusterList = np.asarray(clusterList)[...,None].astype(int)
     #pidList = np.asarray(pidList)[...,None].astype(int)
 
@@ -76,13 +76,13 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/2d_rotated_data_75_clusters.tsv", "w")
+    f= open("../../../../data/25d_nonprojected_data_25_clusters.tsv", "w")
 
     for i in range(d1):
         line = []
         line.append(pidList[i])
         line.append(clusterList[i])
-        line.extend(list(final_rotated_data[i,:]))
+        line.extend(list(final_data[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
 
