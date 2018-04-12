@@ -2,8 +2,8 @@ from deltasep_utils import gen_k_centers
 import numpy as np
 
 def main():
-    dim = 50
-    centers, delta = gen_k_centers(50, dim)
+    dim = 100
+    centers, delta = gen_k_centers(75, dim)
     list_of_data = []
     rotated_data = []
     clusterList = []
@@ -76,7 +76,7 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/50d_nonprojected_data_50_clusters.tsv", "w")
+    f= open("../../../../data/100d_nonprojected_data_75_clusters.tsv", "w")
 
     for i in range(d1):
         line = []
