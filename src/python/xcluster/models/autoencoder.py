@@ -142,7 +142,8 @@ class AutoEncoder(nn.Module):
             #3 Two Hidden Layers
 
             nn.Linear(input_dim, d_prime),
-            nn.Tanh(),
+            #nn.Tanh(),
+            nn.ReLU(),
             nn.Linear(d_prime, output_dim),
             #nn.Tanh(),
 
@@ -160,7 +161,8 @@ class AutoEncoder(nn.Module):
             #d_prime_2 = input_dim
 
             nn.Linear(output_dim, d_prime),
-            nn.Tanh(),
+            #nn.Tanh(),
+            nn.ReLU(),
             nn.Linear(d_prime, input_dim),
             #nn.Tanh(),
             #3 Two Hidden Layers
