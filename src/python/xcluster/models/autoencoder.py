@@ -108,6 +108,7 @@ def reduceData(data, output_dim):
 
     # visualize in 3D plot
     view_data = Variable(train_data.view(-1, input_dim))
+    view_data = view_data.cuda()
     encoded_data, _ = autoencoder(view_data)
 
     print(encoded_data.shape)
