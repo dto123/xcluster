@@ -30,7 +30,7 @@ def main():
     print (shape)
     #d = np.shape(np.array(p))[1]
     print ("hey")
-    d = shape[0]*.75
+    #d = shape[0]*.75
     #print dog
     #print p.shape
     #d = (3*d)/4
@@ -42,7 +42,7 @@ def main():
     #imagenet has 2048 dimensions
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), d)
+    encoder = reduceData(np.array(p), 450)
 
     print encoder.shape
     #print type(encoder)
