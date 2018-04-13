@@ -4,8 +4,8 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/100d_projected_data_75_clusters.tsv
-dataset_name=100d_projected_data_75_clusters
+dataset_file=$XCLUSTER_ROOT/data/100d_nonprojected_data_75_clusters.tsv
+dataset_name=100d_nonprojected_data_75_clusters
 
 num_runs=10
 num_threads=24
