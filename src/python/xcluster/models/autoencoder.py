@@ -50,7 +50,7 @@ def reduceData(data, output_dim):
     print (dev_data.size())
     # Hyper Parameters
     EPOCH = 10
-    BATCH_SIZE = 32
+    BATCH_SIZE = 8
     LR = 0.005         # learning rate
     DOWNLOAD_MNIST = False
     N_TEST_IMG = 5
