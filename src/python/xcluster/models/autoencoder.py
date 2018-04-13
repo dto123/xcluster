@@ -35,7 +35,7 @@ def reduceData(data, output_dim):
     train_data = torch.from_numpy(training)
     train_data = train_data.type(torch.FloatTensor)
 
-    train_data = train_data.cuda()
+    #train_data = train_data.cuda()
 
     points, input_dim = train_data.size()
     print (train_data.size())
@@ -50,7 +50,7 @@ def reduceData(data, output_dim):
     print (dev_data.size())
     # Hyper Parameters
     EPOCH = 10
-    BATCH_SIZE = 8
+    BATCH_SIZE = 64
     LR = 0.005         # learning rate
     DOWNLOAD_MNIST = False
     N_TEST_IMG = 5
