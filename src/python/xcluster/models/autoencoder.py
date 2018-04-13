@@ -91,6 +91,7 @@ def reduceData(data, output_dim):
                 lossDev = 0
                 for step, (d_x, d_y) in enumerate(dev_loader):
                     dev_x = Variable(d_x.view(-1, dev_input_dim))
+                    dev_x = dev_x.cuda()
 
                     encodedDev, decodedDev = autoencoder(dev_x)
 
