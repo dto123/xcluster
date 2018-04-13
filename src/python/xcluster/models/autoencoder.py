@@ -90,6 +90,7 @@ def reduceData(data, output_dim):
 
                 lossDev = 0
                 for step, (d_x, d_y) in enumerate(dev_loader):
+
                     dev_x = Variable(d_x.view(-1, dev_input_dim))
                     dev_x = dev_x.cuda()
 
@@ -97,7 +98,7 @@ def reduceData(data, output_dim):
 
 
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
-
+                    print('Epoch: ', epoch, '| dev loss: %.4f' % lossDev)
                 if lossDev < bestLoss:
                     autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")
