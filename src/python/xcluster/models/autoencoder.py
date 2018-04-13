@@ -44,7 +44,7 @@ def reduceData(data, output_dim):
     dev_data = torch.from_numpy(development)
     dev_data = dev_data.type(torch.FloatTensor)
 
-    dev_data = dev_data.cuda()
+    #dev_data = dev_data.cuda()
 
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
