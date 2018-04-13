@@ -30,6 +30,7 @@ def main():
     print (shape)
     #d = np.shape(np.array(p))[1]
     print ("hey")
+    d = shape[0]*.75
     #print dog
     #print p.shape
     #d = (3*d)/4
@@ -41,7 +42,7 @@ def main():
     #imagenet has 2048 dimensions
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 2)
+    encoder = reduceData(np.array(p), d)
 
     print encoder.shape
     #print type(encoder)
@@ -51,7 +52,7 @@ def main():
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    f= open("../../../../data/Autoencoder_data_Speaker_dim_2_twoHL_dprime2.tsv", "w")
+    f= open("../../../../data/Autoencoder_data_Speaker_dim_0.75.tsv", "w")
     #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
