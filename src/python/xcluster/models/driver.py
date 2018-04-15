@@ -42,7 +42,7 @@ def main():
     #imagenet has 2048 dimensions
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 2048)
+    encoder = reduceData(np.array(p), 1024)
 
     print encoder.shape
     #print type(encoder)
