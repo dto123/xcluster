@@ -98,7 +98,7 @@ def reduceData(data, output_dim):
                     encodedDev, decodedDev = autoencoder(dev_x)
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
                 #avg_dev_loss = lossDev / float(num_of_dev_samples)
-                print('Epoch: ', epoch, '| dev loss: %.4f' % avg_dev_loss)
+                #print('Epoch: ', epoch, '| dev loss: %.4f' % avg_dev_loss)
                 if lossDev < bestLoss:
                     autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")
