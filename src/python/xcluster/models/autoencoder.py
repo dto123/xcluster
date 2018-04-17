@@ -27,7 +27,7 @@ class AutoEncoderDataset(Dataset):
 def reduceData(data, output_dim):
 
     #shuffle data and split it
-    data = data - np.mean(data,dim=1)
+    data = data - np.mean(data,axis=0)
 
     np.random.shuffle(data)
 
