@@ -69,6 +69,7 @@ def reduceData(data, output_dim):
 
     #bestLoss = math.inf
     bestLoss = float("inf")
+    autoencoder = autoencoder.cuda()
     for epoch in range(EPOCH):
         for step, (x, y) in enumerate(train_loader):
             b_x = Variable(x.view(-1, input_dim))   # batch x, shape (batch, 28*28)
@@ -78,7 +79,7 @@ def reduceData(data, output_dim):
             b_y = b_y.cuda()
             #b_label = Variable(y)               # batch label
 
-            autoencoder = autoencoder.cuda()
+            #autoencoder = autoencoder.cuda()
 
             encoded, decoded = autoencoder(b_x)
 
