@@ -21,11 +21,11 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/glass.tsv")
+    pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.scale.tsv")
     #pid2,cid2,p2 = loadData("../../../../data/speaker_whitened.tsv")
     #pid3,cid3,p3 = loadData("../../../../data/ilsvrc12_50k.tsv")
-    pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
+    #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
     #shape2 = np.shape(np.array(p2))
     #shape3 = np.shape(np.array(p3))
@@ -50,7 +50,7 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 512)
+    encoder = reduceData(np.array(p), 7)
 
     print encoder.shape
     #print type(encoder)
@@ -61,8 +61,8 @@ def main():
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
-    f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
-    #f= open("../../../../data/PCA_data_glass_fullDim.tsv", "w")
+    #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
+    f= open("../../../../data/AE_glass_7dim.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")

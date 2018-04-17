@@ -27,6 +27,8 @@ class AutoEncoderDataset(Dataset):
 def reduceData(data, output_dim):
 
     #shuffle data and split it
+    data = data - np.mean(data,dim=1)
+
     np.random.shuffle(data)
 
     training, development = train_test_split(data, test_size=0.2)
