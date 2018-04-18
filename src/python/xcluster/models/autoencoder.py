@@ -93,16 +93,16 @@ def reduceData(data, output_dim):
                 print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0])
 
                 lossDev = 0
-                #num_of_dev_samples = 0
+                num_of_dev_samples = 0
                 for step, (d_x, d_y) in enumerate(dev_loader):
                     dev_x = Variable(d_x.view(-1, dev_input_dim))
                     dev_x = dev_x.cuda()
-                    #num_of_dev_samples += dev_x.size()[0]
+                    num_of_dev_samples += dev_x.size()[0]
 
                     encodedDev, decodedDev = autoencoder(dev_x)
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
-                #avg_dev_loss = lossDev / float(num_of_dev_samples)
-                #print('Epoch: ', epoch, '| dev loss: %.4f' % avg_dev_loss)
+                avg_dev_loss = lossDev / float(num_of_dev_samples)
+                print('Epoch: ', epoch, '| dev loss: %.4f' % avg_dev_loss)
                 if lossDev < bestLoss:
                     autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")

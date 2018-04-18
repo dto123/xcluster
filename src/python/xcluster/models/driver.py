@@ -62,7 +62,7 @@ def main():
     #autoencoder = autoencoder(np.array(p), 2)
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
-    f= open("../../../../data/AE_glass_7dim_ZM.tsv", "w")
+    f= open("../../../../data/AE_glass_7dim_ZM_dev.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
