@@ -27,7 +27,7 @@ class AutoEncoderDataset(Dataset):
 def reduceData(data, output_dim):
 
     #shuffle data and split it
-    #data = data - np.mean(data,axis=0)
+    data = data - np.mean(data,axis=0)
 
     np.random.shuffle(data)
 
@@ -69,6 +69,7 @@ def reduceData(data, output_dim):
 
     #bestLoss = math.inf
     bestLoss = float("inf")
+
     autoencoder = autoencoder.cuda()
     for epoch in range(EPOCH):
         for step, (x, y) in enumerate(train_loader):
