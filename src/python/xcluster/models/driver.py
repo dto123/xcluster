@@ -21,9 +21,9 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/glass.tsv")
+    pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.scale.tsv")
-    pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
+    #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid3,cid3,p3 = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
@@ -63,7 +63,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    f= open("../../../../data/AE_speaker_0.5d_ZM_dev_epoch100.tsv", "w")
+    f= open("../../../../data/AE_glass_5d_epoch500_LR_0.01.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
