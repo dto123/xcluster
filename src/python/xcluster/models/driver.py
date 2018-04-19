@@ -35,7 +35,7 @@ def main():
     #print (shape3)
     #print (shape4)
     #d = np.shape(np.array(p))[1]
-    print ("hey")
+    #print ("hey")
     #d = shape[0]*.75
     #print dog
     #print p.shape
@@ -50,7 +50,7 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 300)
+    encoder = reduceData(np.array(p), 5)
 
     print (encoder.shape)
     #print type(encoder)
@@ -62,7 +62,8 @@ def main():
     #autoencoder = autoencoder(np.array(p), 2)
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
-    f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
+    #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
+    f= open("../../../../data/AE_glass_d=5_ZM_dev.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
