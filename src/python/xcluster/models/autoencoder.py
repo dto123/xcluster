@@ -26,9 +26,10 @@ class AutoEncoderDataset(Dataset):
 
 def reduceData(data, output_dim):
 
-    #shuffle data and split it
-    data = data - np.mean(data,axis=1)
+    #zero mean
+    data = data - np.mean(data,axis=0)
 
+    #shuffle data and split it
     np.random.shuffle(data)
 
     training, development = train_test_split(data, test_size=0.2)
@@ -51,7 +52,7 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 500
+    EPOCH = 1
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
     LR = 0.01
