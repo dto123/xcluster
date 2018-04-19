@@ -51,7 +51,7 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 1000
+    EPOCH = 500
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
     LR = 0.01
