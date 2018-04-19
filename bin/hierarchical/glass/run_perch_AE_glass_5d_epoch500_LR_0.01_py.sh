@@ -4,8 +4,8 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/AE_glass_5d_epoch500_LR_0.01.tsv.tsv
-dataset_name=AE_glass_5d_epoch500_LR_0.01.tsv
+dataset_file=$XCLUSTER_ROOT/data/AE_glass_5d_epoch500_LR_0.01.tsv
+dataset_name=AE_glass_5d_epoch500_LR_0.01
 
 num_runs=10
 num_threads=24
