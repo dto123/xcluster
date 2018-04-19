@@ -51,10 +51,10 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 500
+    EPOCH = 1000
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
-    LR = 0.01
+    LR = 0.05
     DOWNLOAD_MNIST = False
     N_TEST_IMG = 5
 
@@ -91,7 +91,7 @@ def reduceData(data, output_dim):
             optimizer.step()                    # apply gradients
 
             if step % 100 == 0:
-                print('Epoch: ', epoch, '| train loss: %.4f' % loss.data[0])
+                print('Epoch: ', epoch, '| train loss: %.8f' % loss.data[0])
 
                 lossDev = 0
                 num_of_dev_samples = 0
@@ -103,7 +103,7 @@ def reduceData(data, output_dim):
                     encodedDev, decodedDev = autoencoder(dev_x)
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
                 avg_dev_loss = lossDev / float(num_of_dev_samples)
-                print('Epoch: ', epoch, '| dev loss: %.4f' % avg_dev_loss)
+                print('Epoch: ', epoch, '| dev loss: %.8f' % avg_dev_loss)
                 if lossDev < bestLoss:
                     autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")
