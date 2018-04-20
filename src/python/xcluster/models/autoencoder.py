@@ -9,6 +9,7 @@ from matplotlib import cm
 import numpy as np
 from torch.utils.data.dataset import Dataset
 import math
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 
@@ -52,7 +53,7 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 1
+    EPOCH = 100
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
     LR = 0.01
@@ -71,7 +72,9 @@ def reduceData(data, output_dim):
 
     #bestLoss = math.inf
     bestLoss = float("inf")
-
+    iterationList = []
+    trainList = []
+    devList = []
     autoencoder = autoencoder.cuda()
     for epoch in range(EPOCH):
         for step, (x, y) in enumerate(train_loader):
@@ -93,7 +96,8 @@ def reduceData(data, output_dim):
 
             if step % 100 == 0:
                 print('Epoch: ', epoch, '| train loss: %.8f' % loss.data[0])
-
+                iterationList.append(epoch)
+                trainList.append(loss.data[0])
                 lossDev = 0
                 num_of_dev_samples = 0
                 for step, (d_x, d_y) in enumerate(dev_loader):
@@ -105,12 +109,19 @@ def reduceData(data, output_dim):
                     lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
                 avg_dev_loss = lossDev / float(num_of_dev_samples)
                 print('Epoch: ', epoch, '| dev loss: %.8f' % avg_dev_loss)
+                devList.append(avg_dev_loss)
                 if lossDev < bestLoss:
                     autoencoder = autoencoder.cuda()
                     torch.save(autoencoder, "model.torch")
 
     autoencoder = torch.load("model.torch")
 
+    plt.plot(iterationList, trainList, color='g')
+    plt.plot(iterationList, devList, color='orange')
+    plt.xlabel('Loss')
+    plt.ylabel('Iterations')
+    plt.title('Iterations vs Loss')
+    plt.show()
 
 
     # visualize in 3D plot

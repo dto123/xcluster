@@ -27,17 +27,17 @@ def main():
     #pid3,cid3,p3 = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
 
-    points, dim = np.shape(np.array(p))
+    #points, dim = np.shape(np.array(p))
     #shape2 = np.shape(np.array(p2))
     #shape3 = np.shape(np.array(p3))
     #shape4 = np.shape(np.array(p4))
-    #print (shape)
+    print (shape)
 
 
     W = np.random.rand(dim,dim)
     projectedP = np.matmul(p, W)
 
-    print (projectedP.shape)
+    #print (projectedP.shape)
     #print (shape2)
     #print (shape3)
     #print (shape4)
@@ -55,9 +55,10 @@ def main():
     #imagenet has 2048 dimensions
 
 
-    """
+
     #pca = PCA(np.array(p), 2)
     encoder = reduceData(np.array(p), 5)
+    #encoder = reduceData(np.array(projectedP), 5)
 
     print (encoder.shape)
     #print type(encoder)
@@ -70,7 +71,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    f= open("../../../../data/AE_glass_5d_epoch1_LR_0.01_ZM.tsv", "w")
+    f= open("../../../../data/AE_glass_5d_epoch100_LR_0.01_ZM_plot.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
@@ -86,5 +87,5 @@ def main():
 
     #print pca
     f.close()
-    """
+
 main()
