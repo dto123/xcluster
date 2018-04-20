@@ -11,7 +11,7 @@ from torch.utils.data.dataset import Dataset
 import math
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-
+plt.use('Agg')
 
 class AutoEncoderDataset(Dataset):
     """Dataset wrapper for autoencoding """
@@ -116,22 +116,13 @@ def reduceData(data, output_dim):
 
     autoencoder = torch.load("model.torch")
 
-    #plt.plot(iterationList, trainList, color='g')
-    #plt.plot(iterationList, devList, color='orange')
-    #plt.xlabel('Loss')
-    #plt.ylabel('Iterations')
-    #plt.title('Iterations vs Loss')
-    #plt.show()
-    a = [1, 2, 3, 5]
-    b = [2, 6, 7, 2]
-    c = [4, 5, 2, 5]
-
-    plt.plot(a, b, color='g')
-    plt.plot(a, c, color='orange')
+    plt.plot(iterationList, trainList, color='g')
+    plt.plot(iterationList, devList, color='orange')
     plt.xlabel('Loss')
     plt.ylabel('Iterations')
     plt.title('Iterations vs Loss')
     plt.show()
+
 
 
     # visualize in 3D plot
