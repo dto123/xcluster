@@ -55,7 +55,7 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 200
+    EPOCH = 100
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
     LR = 0.01
@@ -138,7 +138,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsLinear.png')
+    plt.savefig('LossVsIterationsLinearALOI.png')
 
 
     # visualize in 3D plot
