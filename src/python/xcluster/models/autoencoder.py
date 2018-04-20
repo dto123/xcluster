@@ -3,15 +3,15 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.utils.data as Data
 import torchvision
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import numpy as np
 from torch.utils.data.dataset import Dataset
 import math
-import matplotlib 
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
 
 
