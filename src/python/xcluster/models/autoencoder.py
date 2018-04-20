@@ -9,9 +9,11 @@ from matplotlib import cm
 import numpy as np
 from torch.utils.data.dataset import Dataset
 import math
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-plt.use('Agg')
+
 
 class AutoEncoderDataset(Dataset):
     """Dataset wrapper for autoencoding """
