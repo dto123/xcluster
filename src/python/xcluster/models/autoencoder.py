@@ -214,17 +214,13 @@ class AutoEncoder(nn.Module):
 
     def forward(self, x):
         encoded = self.encoder(x)
-        print("hi")
         print (type(encoded))
-        print("hi")
         numpy_encoded = encoded.cpu().data.numpy()
         norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
         torch_encoded = torch.from_numpy(norm_encoded)
         print (type(torch_encoded))
-        print("hi")
         var_encoded = Variable(torch_encoded)
         var_encoded = var_encoded.cuda()
-        print("ga")
         decoded = self.decoder(var_encoded)
         return encoded, decoded
 
