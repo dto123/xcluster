@@ -222,10 +222,10 @@ class AutoEncoder(nn.Module):
         torch_encoded = torch.from_numpy(norm_encoded)
         print (type(torch_encoded))
         print("hi")
-        a = Variable(torch_encoded)
-        print(type(a))
+        var_encoded = Variable(torch_encoded)
+        var_encoded = var_encoded.cuda()
         print("ga")
-        decoded = self.decoder(Variable(torch_encoded))
+        decoded = self.decoder(var_encoded)
         return encoded, decoded
 
 #encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
