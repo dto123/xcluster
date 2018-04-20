@@ -26,7 +26,7 @@ def main():
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid3,cid3,p3 = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
-
+    shape = np.shape(np.array(p))
     #points, dim = np.shape(np.array(p))
     #shape2 = np.shape(np.array(p2))
     #shape3 = np.shape(np.array(p3))
