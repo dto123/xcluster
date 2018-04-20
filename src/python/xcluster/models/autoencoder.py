@@ -133,21 +133,25 @@ def reduceData(data, output_dim):
 
     autoencoder = torch.load("model.torch")
 
-    plt.plot(iterationList, trainList, color='g')
-    plt.plot(iterationList, devList, color='orange')
-    plt.ylabel('Loss')
-    plt.xlabel('Iterations')
-    plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsProjected.png')
+    #plt.plot(iterationList, trainList, color='g')
+    #plt.plot(iterationList, devList, color='orange')
+    #plt.ylabel('Loss')
+    #plt.xlabel('Iterations')
+    #plt.title('Iterations vs Loss')
+    #plt.savefig('LossVsIterationsProjected.png')
 
 
     # visualize in 3D plot
     view_data = Variable(train_data.view(-1, input_dim))
     view_data = view_data.cuda()
-    encoded_data, _ = autoencoder(view_data)
+    encoded_data, decoded_data = autoencoder(view_data)
 
-    print(encoded_data.shape)
-    return encoded_data.data
+    #print(encoded_data.shape)
+    #return encoded_data.data
+    print decoded_data.shape()
+    return decoded_data.data
+
+
     #return encoded_data
 
 
