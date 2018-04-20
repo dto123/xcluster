@@ -146,10 +146,10 @@ def reduceData(data, output_dim):
     view_data = view_data.cuda()
     encoded_data, decoded_data = autoencoder(view_data)
 
-    #print(encoded_data.shape)
-    #return encoded_data.data
-    print (decoded_data.shape)
-    return decoded_data.data
+    print(encoded_data.shape)
+    return encoded_data.data
+    #print (decoded_data.shape)
+    #return decoded_data.data
 
 
     #return encoded_data
@@ -214,7 +214,10 @@ class AutoEncoder(nn.Module):
 
     def forward(self, x):
         encoded = self.encoder(x)
-        decoded = self.decoder(encoded)
+        numpy_encoded = encoded.numpy()
+        norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
+        torch_encoded = torch.from_numpy(norm_encoded)
+        decoded = self.decoder(torch_encoded)
         return encoded, decoded
 
 #encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
