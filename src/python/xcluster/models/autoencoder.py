@@ -214,9 +214,11 @@ class AutoEncoder(nn.Module):
 
     def forward(self, x):
         encoded = self.encoder(x)
+        print encoded.type()
         numpy_encoded = encoded.numpy()
         norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
         torch_encoded = torch.from_numpy(norm_encoded)
+        print torch_encoded.type()
         decoded = self.decoder(torch_encoded)
         return encoded, decoded
 
