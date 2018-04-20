@@ -148,7 +148,7 @@ def reduceData(data, output_dim):
 
     #print(encoded_data.shape)
     #return encoded_data.data
-    print decoded_data.shape()
+    print (decoded_data.shape())
     return decoded_data.data
 
 
