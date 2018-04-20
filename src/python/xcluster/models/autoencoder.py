@@ -222,6 +222,9 @@ class AutoEncoder(nn.Module):
         torch_encoded = torch.from_numpy(norm_encoded)
         print (type(torch_encoded))
         print("hi")
+        a = Variable(torch_encoded)
+        print(type(a))
+        print("ga")
         decoded = self.decoder(Variable(torch_encoded))
         return encoded, decoded
 
