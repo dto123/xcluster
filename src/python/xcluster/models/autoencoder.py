@@ -138,7 +138,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('Loss.png')
+    plt.savefig('LossVsIterations.png')
 
 
     # visualize in 3D plot
