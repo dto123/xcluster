@@ -55,7 +55,7 @@ def reduceData(data, output_dim):
     dev_points, dev_input_dim = train_data.size()
     print (dev_data.size())
     # Hyper Parameters
-    EPOCH = 100
+    EPOCH = 200
     BATCH_SIZE = 64
     #LR = 0.005         # learning rate
     LR = 0.01
@@ -133,12 +133,12 @@ def reduceData(data, output_dim):
 
     autoencoder = torch.load("model.torch")
 
-    #plt.plot(iterationList, trainList, color='g')
-    #plt.plot(iterationList, devList, color='orange')
-    #plt.ylabel('Loss')
-    #plt.xlabel('Iterations')
-    #plt.title('Iterations vs Loss')
-    #plt.savefig('LossVsIterationsProjected.png')
+    plt.plot(iterationList, trainList, color='g')
+    plt.plot(iterationList, devList, color='orange')
+    plt.ylabel('Loss')
+    plt.xlabel('Iterations')
+    plt.title('Iterations vs Loss')
+    plt.savefig('LossVsIterationsIlsvrc.png')
 
 
     # visualize in 3D plot
@@ -214,14 +214,15 @@ class AutoEncoder(nn.Module):
 
     def forward(self, x):
         encoded = self.encoder(x)
-        print (type(encoded))
-        numpy_encoded = encoded.cpu().data.numpy()
-        norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
-        torch_encoded = torch.from_numpy(norm_encoded)
-        print (type(torch_encoded))
-        var_encoded = Variable(torch_encoded)
-        var_encoded = var_encoded.cuda()
-        decoded = self.decoder(var_encoded)
+        #print (type(encoded))
+        #numpy_encoded = encoded.cpu().data.numpy()
+        #norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
+        #torch_encoded = torch.from_numpy(norm_encoded)
+        #print (type(torch_encoded))
+        #var_encoded = Variable(torch_encoded)
+        #var_encoded = var_encoded.cuda()
+        #decoded = self.decoder(var_encoded)
+        decoded = self.decoder(encoded)
         return encoded, decoded
 
 #encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
