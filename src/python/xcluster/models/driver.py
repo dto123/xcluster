@@ -34,8 +34,8 @@ def main():
     print (shape)
 
 
-    W = np.random.rand(dim,dim)
-    projectedP = np.matmul(p, W)
+    #W = np.random.rand(dim,dim)
+    #rojectedP = np.matmul(p, W)
 
     #print (projectedP.shape)
     #print (shape2)
