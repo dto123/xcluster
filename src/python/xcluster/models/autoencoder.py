@@ -217,7 +217,7 @@ class AutoEncoder(nn.Module):
         print("hi")
         print (type(encoded))
         print("hi")
-        numpy_encoded = encoded.data.numpy()
+        numpy_encoded = encoded.cpu().data.numpy()
         norm_encoded = numpy_encoded / np.linalg.norm(numpy_encoded, axis=1, keepdims=True)
         torch_encoded = torch.from_numpy(norm_encoded)
         print (type(torch_encoded))
