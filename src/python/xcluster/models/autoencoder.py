@@ -79,6 +79,8 @@ def reduceData(data, output_dim):
     devList = []
     autoencoder = autoencoder.cuda()
     for epoch in range(EPOCH):
+        num_of_train_samples = 0
+        loss_train = 0
         for step, (x, y) in enumerate(train_loader):
             b_x = Variable(x.view(-1, input_dim))   # batch x, shape (batch, 28*28)
             b_y = Variable(x.view(-1, input_dim))   # batch y, shape (batch, 28*28)
@@ -96,34 +98,46 @@ def reduceData(data, output_dim):
             loss.backward()                     # backpropagation, compute gradients
             optimizer.step()                    # apply gradients
 
-            if step % 100 == 0:
-                print('Epoch: ', epoch, '| train loss: %.8f' % loss.data[0])
-                iterationList.append(epoch)
-                trainList.append(loss.data[0])
-                lossDev = 0
-                num_of_dev_samples = 0
-                for step, (d_x, d_y) in enumerate(dev_loader):
-                    dev_x = Variable(d_x.view(-1, dev_input_dim))
-                    dev_x = dev_x.cuda()
-                    num_of_dev_samples += dev_x.size()[0]
+            #if step % 100 == 0:
+            #    if lossDev < bestLoss:
+            #        autoencoder = autoencoder.cuda()
+            #        torch.save(autoencoder, "model.torch")
 
-                    encodedDev, decodedDev = autoencoder(dev_x)
-                    lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
-                avg_dev_loss = lossDev / float(num_of_dev_samples)
-                print('Epoch: ', epoch, '| dev loss: %.8f' % avg_dev_loss)
-                devList.append(avg_dev_loss)
-                if lossDev < bestLoss:
-                    autoencoder = autoencoder.cuda()
-                    torch.save(autoencoder, "model.torch")
+            loss_train += loss.data[0]
+            num_of_train_samples += b_x.size()[0]
+
+        avg_train_loss = loss_train / float(num_of_train_samples)
+        print('Epoch: ', epoch, '| train loss: %.8f' % avg_train_loss)
+        iterationList.append(epoch)
+        trainList.append(avg_train_loss)
+        lossDev = 0
+        num_of_dev_samples = 0
+
+        for step, (d_x, d_y) in enumerate(dev_loader):
+            dev_x = Variable(d_x.view(-1, dev_input_dim))
+            dev_x = dev_x.cuda()
+            num_of_dev_samples += dev_x.size()[0]
+
+            encodedDev, decodedDev = autoencoder(dev_x)
+            lossDev += loss_func(decodedDev, dev_x).cpu().data.numpy()[0]
+        avg_dev_loss = lossDev / float(num_of_dev_samples)
+
+
+
+        print('Epoch: ', epoch, '| dev loss: %.8f' % avg_dev_loss)
+        devList.append(avg_dev_loss)
+
+        if avg_dev_loss < bestLoss:
+            autoencoder = autoencoder.cuda()
+            torch.save(autoencoder, "model.torch")
 
     autoencoder = torch.load("model.torch")
 
     plt.plot(iterationList, trainList, color='g')
     plt.plot(iterationList, devList, color='orange')
-    plt.xlabel('Loss')
-    plt.ylabel('Iterations')
+    plt.ylabel('Loss')
+    plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.show()
     plt.savefig('Loss.png')
 
 
