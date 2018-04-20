@@ -26,18 +26,19 @@ def main():
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
     #pid3,cid3,p3 = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
-    shape = np.shape(np.array(p))
-    #points, dim = np.shape(np.array(p))
+    #shape = np.shape(np.array(p))
+    points, dim = np.shape(np.array(p))
     #shape2 = np.shape(np.array(p2))
     #shape3 = np.shape(np.array(p3))
     #shape4 = np.shape(np.array(p4))
-    print (shape)
+    #print (shape)
 
 
-    #W = np.random.rand(dim,dim)
-    #rojectedP = np.matmul(p, W)
+    W = np.random.rand(dim,dim)
+    projectedP = np.matmul(p, W)
 
-    #print (projectedP.shape)
+
+    print (projectedP.shape)
     #print (shape2)
     #print (shape3)
     #print (shape4)
@@ -57,10 +58,10 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 5)
+    #encoder = reduceData(np.array(p), 5)
     #encoder = reduceData(np.array(projectedP), 5)
 
-    print (encoder.shape)
+    #print (encoder.shape)
     #print type(encoder)
 
 
@@ -71,17 +72,20 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    f= open("../../../../data/AE_glass_5d_epoch100_LR_0.01_ZM_withlossplot.tsv", "w")
+    #f= open("../../../../data/AE_glass_5d_epoch100_LR_0.01_ZM_withlossplot.tsv", "w")
+    f= open("../../../../data/projected_glass.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
-    for i in range(train_dim):
+    #for i in range(train_dim):
+    for i in range(projectedP.shape[0]):
         line = []
         line.append(pid[i])
         line.append(cid[i])
         #line.extend(list(pca[i,:]))
         #line.extend(list(encoder[i,:]))
-        line.extend(list(encoder[i,:]))
+        #line.extend(list(encoder[i,:]))
+        line.extend(list(projectedP[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
 
