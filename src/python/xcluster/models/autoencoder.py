@@ -222,7 +222,7 @@ class AutoEncoder(nn.Module):
         torch_encoded = torch.from_numpy(norm_encoded)
         print (type(torch_encoded))
         print("hi")
-        decoded = self.decoder(torch_encoded)
+        decoded = self.decoder(Variable(torch_encoded))
         return encoded, decoded
 
 #encoded_data = reduceData(np.random.random_sample((1000,128)), 3)
