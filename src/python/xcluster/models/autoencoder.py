@@ -48,6 +48,10 @@ def reduceData(data, output_dim):
     print(development)
 
     # converting train data into torch
+
+
+    #shuffle train_data
+
     train_data = torch.FloatTensor(training)
 
     print('train_data')
