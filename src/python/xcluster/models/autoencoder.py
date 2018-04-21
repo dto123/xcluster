@@ -139,7 +139,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsGlassRelu.png')
+    plt.savefig('LossVsIterationsGlassSep100.png')
 
 
     # get encoded and decoded data
