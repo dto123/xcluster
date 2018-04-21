@@ -168,6 +168,8 @@ def main():
 
 
     train_dim, new_dim =encoder.shape
+
+    print (training_dim)
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
@@ -179,14 +181,15 @@ def main():
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     #f= open("../../../../data/projected_ilsvrc12.tsv", "w")
-    for i in range(214):
+    for i in range(train_dim):
     #for i in range(projectedP.shape[0]):
         line = []
         line.append(pid[i])
         line.append(cid[i])
         #line.extend(list(pca[i,:]))
         #line.extend(list(encoder[i,:]))
-        line.extend(list(encoder[i,:]))
+        #line.extend(list(encoder[i,:]))
+        line.extend(list(encoder[i,:].data.numpy()))
         #line.extend(list(projectedP[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
