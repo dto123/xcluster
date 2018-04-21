@@ -126,7 +126,7 @@ def reduceData(data, output_dim):
             #     print(p.grad)
             optimizer.step()  # apply gradients
 
-            loss_train += loss.data.numpy()[0]
+            loss_train += loss.data.cpu.numpy()[0]
             num_of_train_samples += b_x.size()[0]
 
         avg_train_loss = loss_train / float(num_of_train_samples)
