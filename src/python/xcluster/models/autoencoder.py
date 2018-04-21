@@ -38,7 +38,8 @@ def reduceData(data, output_dim):
     training, development = train_test_split(data, test_size=0.2)
 
     #converting train data into torch
-    train_data = torch.from_numpy(training)
+    train_data = torch.from_numpy(data)
+    #train_data = torch.from_numpy(training)
     train_data = train_data.type(torch.FloatTensor)
 
     #train_data = train_data.cuda()
@@ -138,7 +139,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsLinearALOI.png')
+    plt.savefig('LossVsIterationsGlassFullTrain.png')
 
 
     # visualize in 3D plot
