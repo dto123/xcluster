@@ -64,7 +64,7 @@ def reduceData(data, output_dim):
     print(dev_data)
 
     # Hyper Parameters
-    EPOCH = 100
+    EPOCH = 10
     BATCH_SIZE = 4
     LR = 0.01
 
