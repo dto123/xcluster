@@ -157,7 +157,7 @@ def reduceData(data, output_dim):
         if avg_dev_loss < bestLoss:
             print('New Best Dev Loss %s' % avg_dev_loss)
             print('bestLoss %s' %bestLoss)
-             autoencoder = autoencoder.cuda()
+            autoencoder = autoencoder.cuda()
             print('Saving model')
             #for p in autoencoder.encoder.parameters():
         #        print('p')
