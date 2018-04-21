@@ -173,7 +173,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsGlassSep100.png')
+    plt.savefig('LossVsIterationsnewGlass.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
