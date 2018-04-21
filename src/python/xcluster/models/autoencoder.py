@@ -142,7 +142,7 @@ def reduceData(data, output_dim):
     plt.savefig('LossVsIterationsGlassRelu.png')
 
 
-    # visualize in 3D plot
+    # get encoded and decoded data
     view_data = Variable(train_data.view(-1, input_dim))
     view_data = view_data.cuda()
     encoded_data, decoded_data = autoencoder(view_data)
