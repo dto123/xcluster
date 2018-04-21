@@ -1,6 +1,5 @@
 import numpy as np
-from PCA import PCA
-from autoencoder import reduceData
+from xcluster.models.autoencoder import reduceData
 
 def loadData(filename):
     pid = []
@@ -20,13 +19,13 @@ def loadData(filename):
 
 
 def main():
-    #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/glass.tsv")
-    pid,cid,p = loadData("../../../../data/separated-100.tsv")
-    #pid,cid,p = loadData("../../../../data/aloi.tsv")
-    #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
-    #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
+    #a, c, p = loadData("data/speaker_whitened.tsv")
+    pid,cid,p = loadData("data/glass.tsv")
+    #pid,cid,p = loadData("data/separated-100.tsv")
+    #pid,cid,p = loadData("data/aloi.tsv")
+    #pid,cid,p = loadData("data/speaker_whitened.tsv")
+    #pid,cid,p = loadData("data/ilsvrc12_50k.tsv")
+    #pid,cid,p = loadData("data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
     #points, dim = np.shape(np.array(p))
     #shape2 = np.shape(np.array(p2))
@@ -59,7 +58,7 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 50)
+    encoder = reduceData(np.array(p), 5)
     #encoder = reduceData(np.array(projectedP), 5)
 
     print (encoder.shape)
@@ -70,15 +69,15 @@ def main():
     train_dim, new_dim =encoder.shape
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
-    #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
-    #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
-    #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    #f= open("../../../../data/AE_ilsvrc_.5d_epoch200_LR_0.01.tsv", "w")
-    f= open("../../../../data/AE_seperated_data-100_relu.tsv", "w")
-    #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
-    #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
-    #f= open("../../../../data/PCA_data_speaker.tsv", "w")
-    #f= open("../../../../data/projected_ilsvrc12.tsv", "w")
+    #f= open("data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
+    #f= open("data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
+    #f= open("data/AE_speaker_.5dim_ZM_dev.tsv", "w")
+    #f= open("data/AE_ilsvrc_.5d_epoch200_LR_0.01.tsv", "w")
+    f= open("data/AE_seperated_data-2_relu.tsv", "w")
+    #f= open("data/PCA_data_dim-3.tsv", "w")
+    #f= open("data/PCA_data_dim-7.tsv", "w")
+    #f= open("data/PCA_data_speaker.tsv", "w")
+    #f= open("data/projected_ilsvrc12.tsv", "w")
     for i in range(train_dim):
     #for i in range(projectedP.shape[0]):
         line = []
@@ -86,7 +85,7 @@ def main():
         line.append(cid[i])
         #line.extend(list(pca[i,:]))
         #line.extend(list(encoder[i,:]))
-        line.extend(list(encoder[i,:]))
+        line.extend(list(encoder[i,:].data.numpy()))
         #line.extend(list(projectedP[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
