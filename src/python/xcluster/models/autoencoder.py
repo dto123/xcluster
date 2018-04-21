@@ -85,6 +85,7 @@ def reduceData(data, output_dim):
     dev_loader = Data.DataLoader(dataset=dev_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
     autoencoder = AutoEncoder(input_dim, output_dim)
+    autoencoder = autoencoder.cuda()
     optimizer = torch.optim.Adam(autoencoder.parameters(), lr=LR)
     loss_func = nn.MSELoss(size_average=False)
     bestLoss = float("inf")
