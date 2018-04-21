@@ -179,7 +179,7 @@ def main():
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
     #f= open("../../../../data/projected_ilsvrc12.tsv", "w")
-    for i in range(train_dim):
+    for i in range(214):
     #for i in range(projectedP.shape[0]):
         line = []
         line.append(pid[i])
