@@ -159,7 +159,7 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 5)
+    encoder = reduceData(np.array(p), 64)
     #encoder = reduceData(np.array(projectedP), 5)
 
     print (encoder.shape)
