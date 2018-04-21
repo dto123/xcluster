@@ -20,7 +20,7 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("data/speaker_whitened.tsv")
-    pid,cid,p = loadData("data/glass.tsv")
+    pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("data/separated-100.tsv")
     #pid,cid,p = loadData("data/aloi.tsv")
     #pid,cid,p = loadData("data/speaker_whitened.tsv")
