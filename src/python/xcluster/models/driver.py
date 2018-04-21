@@ -169,7 +169,7 @@ def main():
 
     train_dim, new_dim =encoder.shape
 
-    print (training_dim)
+    
     #print pca.shape
     #autoencoder = autoencoder(np.array(p), 2)
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
