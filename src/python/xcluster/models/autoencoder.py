@@ -103,6 +103,7 @@ def reduceData(data, output_dim):
             optimizer.zero_grad()  # clear gradients for this training step
             b_x = Variable(x)
 
+            b_x = b_x.cuda()
             # print('b_x')
             # print(b_x)
 
@@ -137,7 +138,7 @@ def reduceData(data, output_dim):
 
         for step, (d_x, _) in enumerate(dev_loader):
             dev_x = Variable(d_x)
-            # dev_x = dev_x.cuda()
+            dev_x = dev_x.cuda()
             num_of_dev_samples += dev_x.size()[0]
             encodedDev, decodedDev = autoencoder(dev_x)
 
@@ -156,11 +157,11 @@ def reduceData(data, output_dim):
         if avg_dev_loss < bestLoss:
             print('New Best Dev Loss %s' % avg_dev_loss)
             print('bestLoss %s' %bestLoss)
-            # autoencoder = autoencoder.cuda()
+             autoencoder = autoencoder.cuda()
             print('Saving model')
-            for p in autoencoder.encoder.parameters():
-                print('p')
-                print(p)
+            #for p in autoencoder.encoder.parameters():
+        #        print('p')
+        #        print(p)
             torch.save(autoencoder, "model.torch")
             bestLoss = avg_dev_loss
 
@@ -175,7 +176,7 @@ def reduceData(data, output_dim):
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
-    # view_data = view_data.cuda()
+    view_data = view_data.cuda()
     encoded_data, decoded_data = autoencoder(view_data)
 
     #print(decoded_data.shape)
