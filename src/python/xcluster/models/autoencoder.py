@@ -38,7 +38,7 @@ def reduceData(data, output_dim):
     training, development = train_test_split(data, test_size=0.2)
 
     #converting train data into torch
-    train_data = torch.from_numpy(data)
+    train_data = torch.from_numpy(training)
     #train_data = torch.from_numpy(training)
     train_data = train_data.type(torch.FloatTensor)
 
@@ -182,8 +182,8 @@ class AutoEncoder(nn.Module):
 
             #nn.Linear(input_dim, output_dim),
             nn.Linear(input_dim, d_prime),
-            nn.Tanh(),
-            #nn.ReLU(),
+            #nn.Tanh(),
+            nn.ReLU(),
             nn.Linear(d_prime, output_dim),
             #nn.Tanh(),
 
@@ -202,8 +202,8 @@ class AutoEncoder(nn.Module):
 
             #nn.Linear(output_dim, input_dim),
             nn.Linear(output_dim, d_prime),
-            nn.Tanh(),
-            #nn.ReLU(),
+            #nn.Tanh(),
+            nn.ReLU(),
             nn.Linear(d_prime, input_dim),
             #nn.Tanh(),
             #3 Two Hidden Layers
