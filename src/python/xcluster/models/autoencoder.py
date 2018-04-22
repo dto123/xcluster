@@ -66,6 +66,7 @@ def reduceData(data, output_dim):
     # Hyper Parameters
     EPOCH = 10
     BATCH_SIZE = 32
+    #used to be batch size = 4
     LR = 0.01
 
     input_dim = train_data.size()[1]
@@ -171,7 +172,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsnewAloiNL.png')
+    plt.savefig('LossVsIterationsnewGlassiNL.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
