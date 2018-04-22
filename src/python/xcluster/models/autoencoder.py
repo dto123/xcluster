@@ -65,7 +65,7 @@ def reduceData(data, output_dim):
 
     # Hyper Parameters
     EPOCH = 10
-    BATCH_SIZE = 4
+    BATCH_SIZE = 32
     LR = 0.01
 
     input_dim = train_data.size()[1]
@@ -160,9 +160,7 @@ def reduceData(data, output_dim):
             print('bestLoss %s' %bestLoss)
             autoencoder = autoencoder.cuda()
             print('Saving model')
-            #for p in autoencoder.encoder.parameters():
-        #        print('p')
-        #        print(p)
+
             torch.save(autoencoder, "model.torch")
             bestLoss = avg_dev_loss
 
@@ -173,7 +171,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsnewAloi.png')
+    plt.savefig('LossVsIterationsnewAloiNL.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
@@ -209,10 +207,10 @@ class AutoEncoder(nn.Module):
             # 3 Two Hidden Layers
 
             # nn.Linear(input_dim, output_dim),
-            nn.Linear(input_dim, output_dim),
-            # nn.Tanh(),
+            nn.Linear(input_dim, d_prime),
+            nn.Tanh(),
             # nn.ReLU(),
-            # nn.Linear(output_dim, output_dim),
+            nn.Linear(d_prime, output_dim),
             # nn.Tanh(),
 
         )
@@ -231,7 +229,13 @@ class AutoEncoder(nn.Module):
             # nn.Linear(output_dim, output_dim),
             # nn.Tanh(),
             # nn.ReLU(),
-            nn.Linear(output_dim, input_dim),
+            #nn.Linear(output_dim, input_dim),
+            nn.Linear(output_dim, d_prime),
+            nn.Tanh(),
+            # nn.ReLU(),
+            nn.Linear(d_prime, input_dim),
+
+
             # nn.Tanh(),
             # 3 Two Hidden Layers
 

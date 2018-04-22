@@ -4,10 +4,10 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/AE_seperated_data-100_relu.tsv
-dataset_name=AE_seperated_data-100_relu
+dataset_file=$XCLUSTER_ROOT/data/AE_aloi_new.tsv
+dataset_name=AE_aloi_new
 
-num_runs=10
+num_runs=1
 num_threads=24
 
 mkdir -p $output_dir
