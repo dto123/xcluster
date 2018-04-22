@@ -122,10 +122,10 @@ def loadData(filename):
 
 def main():
     #a, c, p = loadData("../../../../data/speaker_whitened.tsv")
-    pid,cid,p = loadData("../../../../data/glass.tsv")
+    #pid,cid,p = loadData("../../../../data/glass.tsv")
     #pid,cid,p = loadData("../../../../data/aloi.tsv")
     #pid,cid,p = loadData("../../../../data/speaker_whitened.tsv")
-    #pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
+    pid,cid,p = loadData("../../../../data/ilsvrc12_50k.tsv")
     #pid,cid,p = loadData("../../../../data/imagenet_full_100k.tsv")
     shape = np.shape(np.array(p))
     #points, dim = np.shape(np.array(p))
@@ -175,8 +175,8 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    #f= open("../../../../data/AE_ilsvrc_.5d_epoch200_LR_0.01.tsv", "w")
-    f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
+    f= open("../../../../data/AE_ilsvrc_.5d_linear.tsv", "w")
+    #f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
     #f= open("../../../../data/PCA_data_speaker.tsv", "w")
