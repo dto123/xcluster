@@ -42,7 +42,7 @@ def reduceData(data, output_dim):
     training, development = train_test_split(data, test_size=0.2)
 
     training = data
-    np.random.shuffle(training)
+
     #print('training')
     #print(training)
 
@@ -174,7 +174,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsGlassShuffled.png')
+    plt.savefig('LossVsIterationsGlassNonShuffled.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
