@@ -175,7 +175,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    f= open("../../../../data/AE_ilsvrc_.5d_linear.tsv", "w")
+    f= open("../../../../data/AE_ilsvrc_.5d_nonlinear.tsv", "w")
     #f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")

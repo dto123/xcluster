@@ -174,7 +174,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsIlsvrcLinear.png')
+    plt.savefig('LossVsIterationsIlsvrcNonLinear.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
@@ -209,11 +209,11 @@ class AutoEncoder(nn.Module):
             # nn.Tanh(),
             # 3 Two Hidden Layers
 
-            nn.Linear(input_dim, output_dim),
-            #nn.Linear(input_dim, d_prime),
-            #nn.Tanh(),
+            #nn.Linear(input_dim, output_dim),
+            nn.Linear(input_dim, d_prime),
+            nn.Tanh(),
             # nn.ReLU(),
-            #nn.Linear(d_prime, output_dim),
+            nn.Linear(d_prime, output_dim),
             # nn.Tanh(),
 
         )
@@ -228,15 +228,15 @@ class AutoEncoder(nn.Module):
             # d_prime_1 = (input_dim+output_dim)/2
             # d_prime_2 = input_dim
 
-            nn.Linear(output_dim, input_dim),
+            #nn.Linear(output_dim, input_dim),
             # nn.Linear(output_dim, output_dim),
             # nn.Tanh(),
             # nn.ReLU(),
             #nn.Linear(output_dim, input_dim),
-            #nn.Linear(output_dim, d_prime),
-            #nn.Tanh(),
+            nn.Linear(output_dim, d_prime),
+            nn.Tanh(),
             # nn.ReLU(),
-            #nn.Linear(d_prime, input_dim),
+            nn.Linear(d_prime, input_dim),
 
 
             # nn.Tanh(),
