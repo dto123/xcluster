@@ -33,19 +33,21 @@ def reduceData(data, output_dim):
     data = data - np.mean(data,axis=0)
     # return Variable(torch.FloatTensor(data))
 
-    print('data')
-    print(data)
+    #print('data')
+    #rint(data)
 
     # shuffle data and split it
     # np.random.shuffle(data)
 
     training, development = train_test_split(data, test_size=0.2)
-    training = data
-    print('training')
-    print(training)
 
-    print('development')
-    print(development)
+    training = data
+    np.random.shuffle(training)
+    #print('training')
+    #print(training)
+
+    #print('development')
+    #print(development)
 
     # converting train data into torch
 
@@ -54,14 +56,14 @@ def reduceData(data, output_dim):
 
     train_data = torch.FloatTensor(training)
 
-    print('train_data')
-    print(train_data)
+    #print('train_data')
+    #print(train_data)
 
     #converting development data into torch
     dev_data = torch.FloatTensor(development)
 
-    print('dev_data')
-    print(dev_data)
+    #print('dev_data')
+    #print(dev_data)
 
     # Hyper Parameters
     EPOCH = 10
@@ -71,14 +73,14 @@ def reduceData(data, output_dim):
 
     input_dim = train_data.size()[1]
 
-    print('input_dim')
-    print(input_dim)
+    #print('input_dim')
+    #print(input_dim)
     dataset = AutoEncoderDataset(train_data)
     dev_dataset = AutoEncoderDataset(train_data)
-    print('dataset')
-    print(dataset)
-    print('dev_dataset')
-    print(dev_dataset)
+    #print('dataset')
+    #print(dataset)
+    #print('dev_dataset')
+    #print(dev_dataset)
 
     # Data Loader for easy mini-batch return in training, the image batch shape will be (50, 1, 28, 28)
     train_loader = Data.DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True)
@@ -159,7 +161,7 @@ def reduceData(data, output_dim):
         if avg_dev_loss < bestLoss:
             print('New Best Dev Loss %s' % avg_dev_loss)
             print('bestLoss %s' %bestLoss)
-            autoencoder = autoencoder.cuda()
+            #autoencoder = autoencoder.cuda()
             print('Saving model')
 
             torch.save(autoencoder, "model.torch")
@@ -172,7 +174,7 @@ def reduceData(data, output_dim):
     plt.ylabel('Loss')
     plt.xlabel('Iterations')
     plt.title('Iterations vs Loss')
-    plt.savefig('LossVsIterationsnewGlassiNL.png')
+    plt.savefig('LossVsIterationsGlassShuffled.png')
 
     # get encoded and decoded data
     view_data = Variable(torch.FloatTensor(data))
