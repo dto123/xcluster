@@ -233,10 +233,10 @@ class AutoEncoder(nn.Module):
             # nn.Tanh(),
             # nn.ReLU(),
             #nn.Linear(output_dim, input_dim),
-            nn.Linear(output_dim, d_prime),
-            nn.Tanh(),
+            #nn.Linear(output_dim, d_prime),
+            #nn.Tanh(),
             # nn.ReLU(),
-            nn.Linear(d_prime, input_dim),
+            #nn.Linear(d_prime, input_dim),
 
 
             # nn.Tanh(),
