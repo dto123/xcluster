@@ -7,7 +7,7 @@ output_dir=${1:-"experiments_out"}
 dataset_file=$XCLUSTER_ROOT/data/AE_ilsvrc_.5d_nonlinear.tsv
 dataset_name=AE_ilsvrc_.5d_nonlinear
 
-num_runs=10
+num_runs=5
 num_threads=24
 par_max_frontier=50
 
