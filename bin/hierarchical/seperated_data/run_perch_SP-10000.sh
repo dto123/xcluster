@@ -4,7 +4,7 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/separated-1000.tsv
+dataset_file=$XCLUSTER_ROOT/data/separated-10000.tsv
 dataset_name=separated-10000
 
 num_runs=10
