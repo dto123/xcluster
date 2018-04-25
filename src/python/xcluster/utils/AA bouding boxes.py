@@ -2,8 +2,8 @@ from deltasep_utils import gen_k_centers
 import numpy as np
 
 def main():
-    dim = 25
-    centers, delta = gen_k_centers(25, dim)
+    dim = 500
+    centers, delta = gen_k_centers(50, dim)
     list_of_data = []
     rotated_data = []
     clusterList = []
@@ -25,7 +25,7 @@ def main():
             #print (random_datapoints.shape)
             list_of_data.append(random_datapoints)
 
-            for i in range(25):
+            for i in range(50):
                 clusterList.append(cluster)
             cluster+=1
     else:
@@ -41,24 +41,24 @@ def main():
             list_of_data.append(random_datapoints)
 
 
-            for i in range(25):
+            for i in range(50):
                 clusterList.append(cluster)
             cluster+=1
 
 
-    theta = np.radians(45)
-    c, s = np.cos(theta), np.sin(theta)
-    R = np.array(((c,-s), (s, c)))
+    #theta = np.radians(45)
+    #c, s = np.cos(theta), np.sin(theta)
+    #R = np.array(((c,-s), (s, c)))
 
     #print (len(list_of_data))
-    W = np.random.rand(dim,dim)
-    for points in list_of_data:
-        newpoints = np.matmul(points, W)
-        rotated_data.append(newpoints)
+    #W = np.random.rand(dim,dim)
+    #for points in list_of_data:
+#        newpoints = np.matmul(points, W)
+#        rotated_data.append(newpoints)
     #print (len(rotated_data))
 
     final_data = np.vstack(list_of_data)
-    final_rotated_data = np.vstack(rotated_data)
+    #final_rotated_data = np.vstack(rotated_data)
 
     d1, d2 = final_data.shape
     pidList = []
@@ -66,7 +66,7 @@ def main():
         pidList.append(a)
 
     print(final_data.shape)
-    print(final_rotated_data.shape)
+    #print(final_rotated_data.shape)
     #clusterList = np.asarray(clusterList)[...,None].astype(int)
     #pidList = np.asarray(pidList)[...,None].astype(int)
 
@@ -76,13 +76,14 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/25d_projected_data_25_clusters.tsv", "w")
+    f= open("../../../../data/seperated-500.tsv", "w")
 
     for i in range(d1):
         line = []
         line.append(pidList[i])
         line.append(clusterList[i])
-        line.extend(list(final_rotated_data[i,:]))
+        line.extend(list(final_data[i,:]))
+        #line.extend(list(final_rotated_data[i,:]))
         f.write("%s\n"%"\t".join([str(x) for x in line]))
         #print("%s\n"%"\t".join([str(x) for x in line]))
 
