@@ -71,7 +71,7 @@ def main():
     #pidList = np.asarray(pidList)[...,None].astype(int)
 
     #print(pidList)
-
+    #print
     #last_data = np.hstack((clusterList, final_data))
     #Finalized_data = np.hstack((pidList, last_data))
 
