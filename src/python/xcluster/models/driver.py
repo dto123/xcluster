@@ -160,7 +160,7 @@ def main():
 
 
     """
-    W = np.random.rand(dim,0.5*dim)
+    W = np.random.rand(dim,1024)
     projectedP = np.matmul(p, W)
 
 
