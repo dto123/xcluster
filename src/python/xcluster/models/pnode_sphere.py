@@ -17,7 +17,7 @@ import numpy as np
 from collections import defaultdict
 import random
 import string
-from queue import Queue
+from multiprocessing import Queue
 from heapq import heappush, heappop
 from numba import jit
 from bisect import bisect_left
