@@ -4,8 +4,8 @@ set -exu
 
 output_dir=${1:-"experiments_out"}
 
-dataset_file=$XCLUSTER_ROOT/data/ilsvrc_RP_0.25d.tsv
-dataset_name=ilsvrc_RP_0.25d
+dataset_file=$XCLUSTER_ROOT/data/ilsvrc_RP_0.5d.tsv
+dataset_name=ilsvrc_RP_0.5d
 
 num_runs=5
 num_threads=4
