@@ -160,7 +160,7 @@ def main():
 
 
     """
-    W = np.random.rand(dim,512)
+    W = np.random.rand(dim,1536)
     projectedP = np.matmul(p, W)
 
 
@@ -202,7 +202,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
     #f= open("../../../../data/aloi_subset_AE_10clusters.tsv", "w")
-    f= open("../../../../data/ilsvrc_RP_0.25d", "w")
+    f= open("../../../../data/ilsvrc_RP_0.75d.tsv", "w")
     #f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
