@@ -171,6 +171,7 @@ def main():
     #print (shape4)
     #d = np.shape(np.array(p))[1]
     print ("hey")
+    print(np.array(newP).shape)
     #d = shape[0]*.75
     #print dog
     #print p.shape
