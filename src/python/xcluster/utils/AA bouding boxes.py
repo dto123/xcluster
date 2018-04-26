@@ -41,7 +41,7 @@ def main():
             list_of_data.append(random_datapoints)
 
 
-            for i in range(50):
+            for i in range(500):
                 clusterList.append(cluster)
             cluster+=1
 
