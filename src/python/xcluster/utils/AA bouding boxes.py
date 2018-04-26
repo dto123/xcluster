@@ -2,8 +2,8 @@ from deltasep_utils import gen_k_centers
 import numpy as np
 
 def main():
-    dim = 5000
-    centers, delta = gen_k_centers(50, dim)
+    dim = 10
+    centers, delta = gen_k_centers(500, dim)
     list_of_data = []
     rotated_data = []
     clusterList = []
@@ -18,14 +18,14 @@ def main():
             corner2_x = (center[0] + (0.5*x*delta))
             corner2_y = (center[1] + (0.5*y*delta))
 
-            datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
-            datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (25,))
+            datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (250,))
+            datapoints_y = np.random.uniform(low=corner1_y, high = corner2_y, size = (250,))
 
             random_datapoints = np.transpose(np.vstack((datapoints_x, datapoints_y)))
             #print (random_datapoints.shape)
             list_of_data.append(random_datapoints)
 
-            for i in range(50):
+            for i in range(500):
                 clusterList.append(cluster)
             cluster+=1
     else:
@@ -35,7 +35,7 @@ def main():
                 x = np.random.uniform(0, 1)
                 corner1_x = (center[d] - (0.5*x*delta))
                 corner2_x = (center[d] + (0.5*x*delta))
-                datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (25,))
+                datapoints_x = np.random.uniform(low=corner1_x, high = corner2_x, size = (250,))
                 dim_List.append(datapoints_x)
             random_datapoints = np.transpose(np.vstack(np.asarray(dim_List)))
             list_of_data.append(random_datapoints)
@@ -76,7 +76,7 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/separated-5000.tsv", "w")
+    f= open("../../../../data/separatedNew-10.tsv", "w")
 
     for i in range(d1):
         line = []
