@@ -20,8 +20,8 @@ import os
 import sys
 import errno
 
-from xcluster.models.PNode import PNode
-#from xcluster.models.pnode_sphere import pnode_sphere
+#from xcluster.models.PNode import PNode
+from xcluster.models.pnode_sphere import pnode_sphere
 
 from xcluster.utils.serialize_trees import \
     serliaze_tree_to_file_with_point_ids,\
@@ -87,8 +87,8 @@ if __name__ == "__main__":
                             args.max_leaves.lower() != "none" else False
     collapsibles = [] if L < float("Inf") else None
     exact_dist_thresh = args.exact_dist_thres
-    root = PNode(exact_dist_thres=10)
-    #root = pnode_sphere(exact_dist_thres=10)
+    #root = PNode(exact_dist_thres=10)
+    root = pnode_sphere(exact_dist_thres=10)
     for pt in load_data(args.input):
         pt_start = time.time()
         root = root.insert(pt, collapsibles=collapsibles, L=L)
