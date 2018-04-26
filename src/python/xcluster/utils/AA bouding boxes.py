@@ -2,7 +2,7 @@ from deltasep_utils import gen_k_centers
 import numpy as np
 
 def main():
-    dim = 100
+    dim = 500
     centers, delta = gen_k_centers(500, dim)
     list_of_data = []
     rotated_data = []
@@ -76,7 +76,7 @@ def main():
     #Finalized_data = np.hstack((pidList, last_data))
 
 
-    f= open("../../../../data/separatedNew-100.tsv", "w")
+    f= open("../../../../data/separatedNew-500.tsv", "w")
 
     for i in range(d1):
         line = []
