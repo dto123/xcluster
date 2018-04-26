@@ -134,6 +134,31 @@ def main():
     #shape4 = np.shape(np.array(p4))
     print (shape)
 
+    newCID=[]
+    newPID=[]
+    newP=[]
+
+
+    randomCID = set(cid)
+    tenRandCenters = random.sample(randomCID, 10)
+
+    print (len(tenRandCenters))
+
+    for center in tenRandCenters
+        i=0
+        while(cid[i] != center):
+            i+=1
+        for k in range(10):
+            newCID.append(center)
+            newPID.append(pid[i+k])
+            newP.append(p[i+k])
+
+
+    print (len(newCID))
+    print (len(newPID))
+    print (len(newP))
+
+
 
     #W = np.random.rand(dim,dim)
     #projectedP = np.matmul(p, W)
@@ -157,7 +182,7 @@ def main():
     #imagenet has 2048 dimensions
 
 
-
+    """
     #pca = PCA(np.array(p), 2)
     encoder = reduceData(np.array(p), 64)
     #encoder = reduceData(np.array(projectedP), 5)
@@ -196,5 +221,5 @@ def main():
 
     #print pca
     f.close()
-
+"""
 main()
