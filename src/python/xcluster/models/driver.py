@@ -144,7 +144,7 @@ def main():
 
     print (len(tenRandCenters))
 
-    for center in tenRandCenters
+    for center in tenRandCenters:
         i=0
         while(cid[i] != center):
             i+=1
