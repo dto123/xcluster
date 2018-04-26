@@ -64,8 +64,8 @@ def main():
     #
     projectedP = np.matmul(p, W)
     """
-    
-    transformer = random_projection.GaussianRandomProjection(512)
+
+    transformer = random_projection.GaussianRandomProjection(1024)
     projectedP = transformer.fit_transform(p)
 
 
@@ -108,7 +108,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
     #f= open("../../../../data/aloi_subset_AE_10clusters.tsv", "w")
-    f= open("../../../../data/ilsvrc_RP_0.25d.tsv", "w")
+    f= open("../../../../data/ilsvrc_RP_0.5d.tsv", "w")
     #f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
