@@ -102,6 +102,7 @@ main()
 import numpy as np
 from PCA import PCA
 from autoencoder import reduceData
+import random
 
 def loadData(filename):
     pid = []
