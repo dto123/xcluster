@@ -142,8 +142,7 @@ def main():
 
     randomCID = set(cid)
     tenRandCenters = random.sample(randomCID, 10)
-
-    print (len(tenRandCenters))
+    print(tenRandCenters)
 
     for center in tenRandCenters:
         i=0
@@ -186,7 +185,7 @@ def main():
 
 
     #pca = PCA(np.array(p), 2)
-    encoder = reduceData(np.array(p), 64)
+    encoder = reduceData(np.array(newP), 64)
     #encoder = reduceData(np.array(projectedP), 5)
 
     print (encoder.shape)
