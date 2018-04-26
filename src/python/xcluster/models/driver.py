@@ -184,7 +184,7 @@ def main():
     #imagenet has 2048 dimensions
 
 
-    """
+
     #pca = PCA(np.array(p), 2)
     encoder = reduceData(np.array(p), 64)
     #encoder = reduceData(np.array(projectedP), 5)
@@ -202,7 +202,7 @@ def main():
     #f= open("../../../../data/Autoencoder_data_ilsvrc_dim_2.tsv", "w")
     #f= open("../../../../data/Autoencoder_data_imagenet_dim_0.25d.tsv", "w")
     #f= open("../../../../data/AE_speaker_.5dim_ZM_dev.tsv", "w")
-    f= open("../../../../data/aloi_linearAE.tsv", "w")
+    f= open("../../../../data/aloi_subset_AE_10clusters.tsv", "w")
     #f= open("../../../../data/AE_glass_nonshuffled.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-3.tsv", "w")
     #f= open("../../../../data/PCA_data_dim-7.tsv", "w")
@@ -223,5 +223,5 @@ def main():
 
     #print pca
     f.close()
-"""
+
 main()
