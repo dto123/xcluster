@@ -7,7 +7,7 @@ output_dir=${1:-"experiments_out"}
 dataset_file=$XCLUSTER_ROOT/data/speaker_RP_0.5d.tsv
 dataset_name=speaker_RP_0.5d
 
-num_runs=10
+num_runs=1
 num_threads=24
 
 mkdir -p $output_dir
