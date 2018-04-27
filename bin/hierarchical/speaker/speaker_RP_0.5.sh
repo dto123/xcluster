@@ -5,7 +5,7 @@ set -exu
 output_dir=${1:-"experiments_out"}
 
 dataset_file=$XCLUSTER_ROOT/data/speaker_RP_0.5d.tsv
-dataset_name=ilsvrc_RP_0.5d
+dataset_name=speaker_RP_0.5d
 
 num_runs=1
 num_threads=4
